@@ -1,124 +1,123 @@
 ---
-title: "React Conf 2024 Recap"
+title: "Итоги React Conf 2024"
 author: Ricky Hanlon
 date: 2024/05/22
-description: Last week we hosted React Conf 2024, a two-day conference in Henderson, Nevada where 700+ attendees gathered in-person to discuss the latest in UI engineering. In this post, we'll summarize the talks and announcements from the event.
+description: На прошлой неделе мы провели React Conf 2024, двухдневную конференцию в Хендерсоне, штат Невада, где более 700 участников собрались лично, чтобы обсудить последние достижения в области UI-инженерии. В этом посте мы подведем итоги выступлений и анонсов с мероприятия.
 ---
 
-May 22, 2024 by [Ricky Hanlon](https://twitter.com/rickhanlonii).
+22 мая 2024 г. [Ricky Hanlon](https://twitter.com/rickhanlonii).
 
 ---
 
 <Intro>
 
-Last week we hosted React Conf 2024, a two-day conference in Henderson, Nevada where 700+ attendees gathered in-person to discuss the latest in UI engineering. This was our first in-person conference since 2019, and we were thrilled to be able to bring the community together again.
+На прошлой неделе мы провели React Conf 2024, двухдневную конференцию в Хендерсоне, штат Невада, где более 700 участников собрались лично, чтобы обсудить последние достижения в области UI-инженерии. Это была наша первая очная конференция с 2019 года, и мы были рады возможности снова собрать сообщество вместе.
 
 </Intro>
 
 ---
 
-At React Conf 2024, we announced the [React 19 RC](/blog/2024/12/05/react-19), the [React Native New Architecture Beta](https://github.com/reactwg/react-native-new-architecture/discussions/189), and an experimental release of the [React Compiler](/learn/react-compiler). The community also took the stage to announce [React Router v7](https://remix.run/blog/merging-remix-and-react-router), [Universal Server Components](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=20765s) in Expo Router, React Server Components in [RedwoodJS](https://redwoodjs.com/blog/rsc-now-in-redwoodjs), and much more.
+На React Conf 2024 мы анонсировали [React 19 RC](/blog/2024/12/05/react-19), [бета-версию новой архитектуры React Native](https://github.com/reactwg/react-native-new-architecture/discussions/189) и экспериментальный релиз [React Compiler](/learn/react-compiler). Сообщество также представило [React Router v7](https://remix.run/blog/merging-remix-and-react-router), [Universal Server Components](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=20765s) в Expo Router, React Server Components в [RedwoodJS](https://redwoodjs.com/blog/rsc-now-in-redwoodjs) и многое другое.
 
-The entire [day 1](https://www.youtube.com/watch?v=T8TZQ6k4SLE) and [day 2](https://www.youtube.com/watch?v=0ckOUBiuxVY) streams are available online. In this post, we'll summarize the talks and announcements from the event.
+Полные записи [первого дня](https://www.youtube.com/watch?v=T8TZQ6k4SLE) и [второго дня](https://www.youtube.com/watch?v=0ckOUBiuxVY) доступны онлайн. В этом посте мы подведем итоги выступлений и анонсов с мероприятия.
 
-## Day 1 {/*day-1*/}
+## День 1 {/*day-1*/}
 
-_[Watch the full day 1 stream here.](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=973s)_
+_[Полную запись первого дня смотрите здесь.](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=973s)_
 
-To kick off day 1, Meta CTO [Andrew "Boz" Bosworth](https://www.threads.net/@boztank) shared a welcome message followed by an introduction by [Seth Webster](https://twitter.com/sethwebster), who manages the React Org at Meta, and our MC [Ashley Narcisse](https://twitter.com/_darkfadr).
+В начале первого дня технический директор Meta [Andrew "Boz" Bosworth](https://www.threads.net/@boztank) выступил с приветственным словом, после чего последовало вступление от [Seth Webster](https://twitter.com/sethwebster), руководителя React Org в Meta, и нашего ведущего [Ashley Narcisse](https://twitter.com/_darkfadr).
 
-In the day 1 keynote, [Joe Savona](https://twitter.com/en_JS) shared our goals and vision for React to make it easy for anyone to build great user experiences. [Lauren Tan](https://twitter.com/potetotes) followed with a State of React, where she shared that React was downloaded over 1 billion times in 2023, and that 37% of new developers learn to program with React. Finally, she highlighted the work of the React community to make React, React.
+В основной презентации первого дня [Joe Savona](https://twitter.com/en_JS) рассказал о наших целях и видении React, направленных на то, чтобы сделать создание отличных пользовательских интерфейсов доступным для всех. Затем [Lauren Tan](https://twitter.com/potetotes) представила обзор состояния React, сообщив, что в 2023 году React был загружен более 1 миллиарда раз, а 37% новых разработчиков начинают свое обучение с React. Наконец, она отметила работу сообщества React по развитию библиотеки.
 
-For more, check out these talks from the community later in the conference:
+Дополнительно ознакомьтесь с этими выступлениями от сообщества, которые прошли позже на конференции:
 
-- [Vanilla React](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=5542s) by [Ryan Florence](https://twitter.com/ryanflorence)
-- [React Rhythm & Blues](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=12728s) by [Lee Robinson](https://twitter.com/leeerob)
-- [RedwoodJS, now with React Server Components](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=26815s) by [Amy Dutton](https://twitter.com/selfteachme)
-- [Introducing Universal React Server Components in Expo Router](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=20765s) by [Evan Bacon](https://twitter.com/Baconbrix)
+- [Vanilla React](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=5542s) от [Ryan Florence](https://twitter.com/ryanflorence)
+- [React Rhythm & Blues](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=12728s) от [Lee Robinson](https://twitter.com/leeerob)
+- [RedwoodJS, теперь с React Server Components](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=26815s) от [Amy Dutton](https://twitter.com/selfteachme)
+- [Представляем Universal React Server Components в Expo Router](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=20765s) от [Evan Bacon](https://twitter.com/Baconbrix)
 
-Next in the keynote, [Josh Story](https://twitter.com/joshcstory) and [Andrew Clark](https://twitter.com/acdlite) shared new features coming in React 19, and announced the React 19 RC which is ready for testing in production. Check out all the features in the [React 19 release post](/blog/2024/12/05/react-19), and see these talks for deep dives on the new features:
+Далее в основной презентации [Josh Story](https://twitter.com/joshcstory) и [Andrew Clark](https://twitter.com/acdlite) рассказали о новых возможностях React 19 и анонсировали React 19 RC, готовый к тестированию в продакшене. Ознакомьтесь со всеми возможностями в [посте о релизе React 19](/blog/2024/12/05/react-19) и посмотрите эти выступления для более глубокого погружения в новые функции:
 
-- [What's new in React 19](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=8880s) by [Lydia Hallie](https://twitter.com/lydiahallie)
-- [React Unpacked: A Roadmap to React 19](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=10112s) by [Sam Selikoff](https://twitter.com/samselikoff)
-- [React 19 Deep Dive: Coordinating HTML](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=24916s) by [Josh Story](https://twitter.com/joshcstory)
-- [Enhancing Forms with React Server Components](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=25280s) by [Aurora Walberg Scharff](https://twitter.com/aurorascharff)
-- [React for Two Computers](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=18825s) by [Dan Abramov](https://bsky.app/profile/danabra.mov)
-- [And Now You Understand React Server Components](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=11256s) by [Kent C. Dodds](https://twitter.com/kentcdodds)
+- [Что нового в React 19](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=8880s) от [Lydia Hallie](https://twitter.com/lydiahallie)
+- [React Unpacked: Дорожная карта React 19](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=10112s) от [Sam Selikoff](https://twitter.com/samselikoff)
+- [React 19 Deep Dive: Координация HTML](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=24916s) от [Josh Story](https://twitter.com/joshcstory)
+- [Улучшение форм с помощью React Server Components](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=25280s) от [Aurora Walberg Scharff](https://twitter.com/aurorascharff)
+- [React для двух компьютеров](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=18825s) от [Dan Abramov](https://bsky.app/profile/danabra.mov)
+- [А теперь вы понимаете React Server Components](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=11256s) от [Kent C. Dodds](https://twitter.com/kentcdodds)
 
-Finally, we ended the keynote with [Joe Savona](https://twitter.com/en_JS), [Sathya Gunasekaran](https://twitter.com/_gsathya), and [Mofei Zhang](https://twitter.com/zmofei) announcing that the React Compiler is now [Open Source](https://github.com/facebook/react/pull/29061), and sharing an experimental version of the React Compiler to try out.
+В заключение основной презентации [Joe Savona](https://twitter.com/en_JS), [Sathya Gunasekaran](https://twitter.com/_gsathya) и [Mofei Zhang](https://twitter.com/zmofei) объявили, что React Compiler теперь [Open Source](https://github.com/facebook/react/pull/29061), и представили экспериментальную версию React Compiler для ознакомления.
 
-For more information on using the Compiler and how it works, check out [the docs](/learn/react-compiler) and these talks:
+Для получения дополнительной информации об использовании Компилятора и его работе ознакомьтесь с [документацией](/learn/react-compiler) и этими выступлениями:
 
-- [Forget About Memo](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=12020s) by [Lauren Tan](https://twitter.com/potetotes)
-- [React Compiler Deep Dive](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=9313s) by [Sathya Gunasekaran](https://twitter.com/_gsathya) and [Mofei Zhang](https://twitter.com/zmofei)
+- [Забудьте о Memo](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=12020s) от [Lauren Tan](https://twitter.com/potetotes)
+- [React Compiler Deep Dive](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=9313s) от [Sathya Gunasekaran](https://twitter.com/_gsathya) и [Mofei Zhang](https://twitter.com/zmofei)
 
-Watch the full day 1 keynote here:
+Полную запись основной презентации первого дня смотрите здесь:
 
 <YouTubeIframe src="https://www.youtube.com/embed/T8TZQ6k4SLE?t=973s" />
 
-## Day 2 {/*day-2*/}
+## День 2 {/*day-2*/}
 
-_[Watch the full day 2 stream here.](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=1720s)_
+_[Полную запись второго дня смотрите здесь.](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=1720s)_
 
-To kick off day 2, [Seth Webster](https://twitter.com/sethwebster) shared a welcome message, followed by a Thank You from [Eli White](https://x.com/Eli_White) and an introduction by our Chief Vibes Officer [Ashley Narcisse](https://twitter.com/_darkfadr).
+В начале второго дня [Seth Webster](https://twitter.com/sethwebster) выступил с приветственным словом, после чего [Eli White](https://x.com/Eli_White) поблагодарил всех, и наш главный специалист по атмосфере [Ashley Narcisse](https://twitter.com/_darkfadr) представил программу.
 
-In the day 2 keynote, [Nicola Corti](https://twitter.com/cortinico) shared the State of React Native, including 78 million downloads in 2023. He also highlighted apps using React Native including 2000+ screens used inside of Meta; the product details page in Facebook Marketplace, which is visited more than 2 billion times per day; and part of the Microsoft Windows Start Menu and some features in almost every Microsoft Office product across mobile and desktop.
+В основной презентации второго дня [Nicola Corti](https://twitter.com/cortinico) представил обзор состояния React Native, отметив 78 миллионов загрузок в 2023 году. Он также рассказал о приложениях, использующих React Native, включая более 2000 экранов внутри Meta; страницу с деталями продукта на Facebook Marketplace, которую посещают более 2 миллиардов раз в день; а также часть меню "Пуск" Microsoft Windows и некоторые функции почти во всех продуктах Microsoft Office на мобильных и настольных устройствах.
 
-Nicola also highlighted all the work the community does to support React Native including libraries, frameworks, and multiple platforms. For more, check out these talks from the community:
+Nicola также отметил всю работу, которую сообщество проделывает для поддержки React Native, включая библиотеки, фреймворки и различные платформы. Дополнительно ознакомьтесь с этими выступлениями от сообщества:
 
-- [Extending React Native beyond Mobile and Desktop Apps](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=5798s) by [Chris Traganos](https://twitter.com/chris_trag) and [Anisha Malde](https://twitter.com/anisha_malde)
-- [Spatial computing with React](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=22525s) by [Michał Pierzchała](https://twitter.com/thymikee)
+- [Расширение React Native за пределы мобильных и настольных приложений](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=5798s) от [Chris Traganos](https://twitter.com/chris_trag) и [Anisha Malde](https://twitter.com/anisha_malde)
+- [Пространственные вычисления с React](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=22525s) от [Michał Pierzchała](https://twitter.com/thymikee)
 
-[Riccardo Cipolleschi](https://twitter.com/cipolleschir) continued the day 2 keynote by announcing that the React Native New Architecture is now in Beta and ready for apps to adopt in production. He shared new features and improvements in the new architecture, and shared the roadmap for the future of React Native. For more check out:
+[Riccardo Cipolleschi](https://twitter.com/cipolleschir) продолжил основную презентацию второго дня, анонсировав, что новая архитектура React Native теперь находится в бета-версии и готова к использованию в продакшене. Он рассказал о новых функциях и улучшениях в новой архитектуре, а также представил дорожную карту развития React Native. Дополнительно ознакомьтесь:
 
-- [Cross Platform React](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=26569s) by [Olga Zinoveva](https://github.com/SlyCaptainFlint) and [Naman Goel](https://twitter.com/naman34)
+- [Кроссплатформенный React](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=26569s) от [Olga Zinoveva](https://github.com/SlyCaptainFlint) и [Naman Goel](https://twitter.com/naman34)
 
-Next in the keynote, Nicola announced that we are now recommending starting with a framework like Expo for all new apps created with React Native. With the change, he also announced a new React Native homepage and new Getting Started docs. You can view the new Getting Started guide in the [React Native docs](https://reactnative.dev/docs/next/environment-setup).
+Далее в основной презентации Nicola объявил, что мы теперь рекомендуем начинать разработку новых приложений React Native с использованием фреймворков, таких как Expo. Вместе с этим изменением он анонсировал новую главную страницу React Native и обновленную документацию по началу работы. Вы можете ознакомиться с новым руководством по началу работы в [документации React Native](https://reactnative.dev/docs/next/environment-setup).
 
-Finally, to end the keynote, [Kadi Kraman](https://twitter.com/kadikraman) shared the latest features and improvements in Expo, and how to get started developing with React Native using Expo.
+В заключение основной презентации [Kadi Kraman](https://twitter.com/kadikraman) рассказала о последних функциях и улучшениях в Expo, а также о том, как начать разработку на React Native с использованием Expo.
 
-Watch the full day 2 keynote here:
+Полную запись основной презентации второго дня смотрите здесь:
 
 <YouTubeIframe src="https://www.youtube.com/embed/0ckOUBiuxVY?t=1720s" />
 
-## Q&A {/*q-and-a*/}
+## Вопросы и ответы {/*q-and-a*/}
 
-The React and React Native teams also ended each day with a Q&A session:
+Команды React и React Native также завершали каждый день сессией вопросов и ответов:
 
-- [React Q&A](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=27518s) hosted by [Michael Chan](https://twitter.com/chantastic)
-- [React Native Q&A](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=27935s) hosted by [Jamon Holmgren](https://twitter.com/jamonholmgren)
+- [React Q&A](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=27518s) под руководством [Michael Chan](https://twitter.com/chantastic)
+- [React Native Q&A](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=27935s) под руководством [Jamon Holmgren](https://twitter.com/jamonholmgren)
 
-## And more... {/*and-more*/}
+## И многое другое... {/*and-more*/}
 
-We also heard talks on accessibility, error reporting, css, and more:
+Мы также услышали доклады по доступности, отчетности об ошибках, CSS и многому другому:
 
-- [Demystifying accessibility in React apps](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=20655s) by [Kateryna Porshnieva](https://twitter.com/krambertech)
-- [Pigment CSS, CSS in the server component age](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=21696s) by [Olivier Tassinari](https://twitter.com/olivtassinari)
-- [Real-time React Server Components](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=24070s) by [Sunil Pai](https://twitter.com/threepointone)
-- [Let's break React Rules](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=25862s) by [Charlotte Isambert](https://twitter.com/c_isambert)
-- [Solve 100% of your errors](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=19881s) by [Ryan Albrecht](https://github.com/ryan953)
+- [Разбираемся в доступности в приложениях React](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=20655s) от [Kateryna Porshnieva](https://twitter.com/krambertech)
+- [Pigment CSS, CSS в эпоху серверных компонентов](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=21696s) от [Olivier Tassinari](https://twitter.com/olivtassinari)
+- [React Server Components в реальном времени](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=24070s) от [Sunil Pai](https://twitter.com/threepointone)
+- [Давайте нарушим правила React](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=25862s) от [Charlotte Isambert](https://twitter.com/c_isambert)
+- [Решите 100% ваших ошибок](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=19881s) от [Ryan Albrecht](https://github.com/ryan953)
 
-## Thank you {/*thank-you*/}
+## Спасибо {/*thank-you*/}
 
-Thank you to all the staff, speakers, and participants who made React Conf 2024 possible. There are too many to list, but we want to thank a few in particular.
+Спасибо всем сотрудникам, докладчикам и участникам, которые сделали React Conf 2024 возможной. Их слишком много, чтобы перечислить всех, но мы хотим особо поблагодарить некоторых.
 
-Thank you to [Barbara Markiewicz](https://twitter.com/barbara_markie), the team at [Callstack](https://www.callstack.com/), and our React Team Developer Advocate [Matt Carroll](https://twitter.com/mattcarrollcode) for helping to plan the entire event; and to [Sunny Leggett](https://zeroslopeevents.com/about) and everyone from [Zero Slope](https://zeroslopeevents.com) for helping to organize the event.
+Спасибо [Barbara Markiewicz](https://twitter.com/barbara_markie), команде [Callstack](https://www.callstack.com/) и нашему разработчику-адвокату команды React [Matt Carroll](https://twitter.com/mattcarrollcode) за помощь в планировании всего мероприятия; а также [Sunny Leggett](https://zeroslopeevents.com/about) и всем из [Zero Slope](https://zeroslopeevents.com) за помощь в организации мероприятия.
 
-Thank you [Ashley Narcisse](https://twitter.com/_darkfadr) for being our MC and Chief Vibes Officer; and to [Michael Chan](https://twitter.com/chantastic) and [Jamon Holmgren](https://twitter.com/jamonholmgren) for hosting the Q&A sessions.
+Спасибо [Ashley Narcisse](https://twitter.com/_darkfadr) за роль ведущего и главного специалиста по атмосфере; а также [Michael Chan](https://twitter.com/chantastic) и [Jamon Holmgren](https://twitter.com/jamonholmgren) за проведение сессий вопросов и ответов.
 
-Thank you [Seth Webster](https://twitter.com/sethwebster) and [Eli White](https://x.com/Eli_White) for welcoming us each day and providing direction on structure and content; and to [Tom Occhino](https://twitter.com/tomocchino) for joining us with a special message during the after-party.
+Спасибо [Seth Webster](https://twitter.com/sethwebster) и [Eli White](https://x.com/Eli_White) за приветствия каждый день и руководство по структуре и содержанию; а также [Tom Occhino](https://twitter.com/tomocchino) за специальное сообщение во время афтепати.
 
-Thank you [Ricky Hanlon](https://www.youtube.com/watch?v=FxTZL2U-uKg&t=1263s) for providing detailed feedback on talks, working on slide designs, and generally filling in the gaps to sweat the details.
+Спасибо [Ricky Hanlon](https://www.youtube.com/watch?v=FxTZL2U-uKg&t=1263s) за предоставление подробных отзывов о докладах, работу над дизайном слайдов и в целом за внимание к деталям.
 
-Thank you [Callstack](https://www.callstack.com/) for building the conference website; and to [Kadi Kraman](https://twitter.com/kadikraman) and the [Expo](https://expo.dev/) team for building the conference mobile app.
+Спасибо [Callstack](https://www.callstack.com/) за создание веб-сайта конференции; и [Kadi Kraman](https://twitter.com/kadikraman) и команде [Expo](https://expo.dev/) за создание мобильного приложения конференции.
 
-Thank you to all the sponsors who made the event possible: [Remix](https://remix.run/), [Amazon](https://developer.amazon.com/apps-and-games?cmp=US_2024_05_3P_React-Conf-2024&ch=prtnr&chlast=prtnr&pub=ref&publast=ref&type=org&typelast=org), [MUI](https://mui.com/), [Sentry](https://sentry.io/for/react/?utm_source=sponsored-conf&utm_medium=sponsored-event&utm_campaign=frontend-fy25q2-evergreen&utm_content=logo-reactconf2024-learnmore), [Abbott](https://www.jobs.abbott/software), [Expo](https://expo.dev/), [RedwoodJS](https://redwoodjs.com/), and [Vercel](https://vercel.com).
+Спасибо всем спонсорам, которые сделали мероприятие возможным: [Remix](https://remix.run/), [Amazon](https://developer.amazon.com/apps-and-games?cmp=US_2024_05_3P_React-Conf-2024&ch=prtnr&chlast=prtnr&pub=ref&publast=ref&type=org&typelast=org), [MUI](https://mui.com/), [Sentry](https://sentry.io/for/react/?utm_source=sponsored-conf&utm_medium=sponsored-event&utm_campaign=frontend-fy25q2-evergreen&utm_content=logo-reactconf2024-learnmore), [Abbott](https://www.jobs.abbott/software), [Expo](https://expo.dev/), [RedwoodJS](https://redwoodjs.com/) и [Vercel](https://vercel.com).
 
-Thank you to the AV Team for the visuals, stage, and sound; and to the Westin Hotel for hosting us.
+Спасибо команде AV за визуальные эффекты, сцену и звук; и отелю Westin за гостеприимство.
 
-Thank you to all the speakers who shared their knowledge and experiences with the community.
+Спасибо всем докладчикам, которые поделились своими знаниями и опытом с сообществом.
 
-Finally, thank you to everyone who attended in person and online to show what makes React, React. React is more than a library, it is a community, and it was inspiring to see everyone come together to share and learn together.
+Наконец, спасибо всем, кто присутствовал лично и онлайн, демонстрируя, что делает React — React. React — это больше, чем библиотека, это сообщество, и было вдохновляюще видеть, как все собрались вместе, чтобы делиться и учиться.
 
-See you next time!
-
+До встречи в следующий раз!
