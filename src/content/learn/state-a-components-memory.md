@@ -1,25 +1,25 @@
 ---
-title: "State: A Component's Memory"
+title: "Состояние: Память компонента"
 ---
 
 <Intro>
 
-Components often need to change what's on the screen as a result of an interaction. Typing into the form should update the input field, clicking "next" on an image carousel should change which image is displayed, clicking "buy" should put a product in the shopping cart. Components need to "remember" things: the current input value, the current image, the shopping cart. In React, this kind of component-specific memory is called *state*.
+Компоненты часто должны изменять то, что отображается на экране, в результате взаимодействия. Ввод текста в форму должен обновлять поле ввода, нажатие кнопки "Следующий" в карусели изображений должно изменять отображаемое изображение, нажатие кнопки "Купить" должно добавлять товар в корзину. Компонентам нужно "помнить" вещи: текущее значение ввода, текущее изображение, содержимое корзины. В React такая память, специфичная для компонента, называется *состоянием* (state).
 
 </Intro>
 
 <YouWillLearn>
 
-* How to add a state variable with the [`useState`](/reference/react/useState) Hook
-* What pair of values the `useState` Hook returns
-* How to add more than one state variable
-* Why state is called local
+* Как добавить переменную состояния с помощью хука [`useState`](/reference/react/useState)
+* Какую пару значений возвращает хук `useState`
+* Как добавить несколько переменных состояния
+* Почему состояние называется локальным
 
 </YouWillLearn>
 
-## When a regular variable isn’t enough {/*when-a-regular-variable-isnt-enough*/}
+## Когда обычной переменной недостаточно {/*when-a-regular-variable-isnt-enough*/}
 
-Here's a component that renders a sculpture image. Clicking the "Next" button should show the next sculpture by changing the `index` to `1`, then `2`, and so on. However, this **won't work** (you can try it!):
+Вот компонент, который отображает изображение скульптуры. Нажатие кнопки "Next" должно показывать следующую скульптуру, изменяя `index` на `1`, затем на `2` и так далее. Однако это **не сработает** (можете попробовать!):
 
 <Sandpack>
 
@@ -151,46 +151,46 @@ button {
 
 </Sandpack>
 
-The `handleClick` event handler is updating a local variable, `index`. But two things prevent that change from being visible:
+Обработчик события `handleClick` обновляет локальную переменную `index`. Но два фактора мешают увидеть это изменение:
 
-1. **Local variables don't persist between renders.** When React renders this component a second time, it renders it from scratch—it doesn't consider any changes to the local variables.
-2. **Changes to local variables won't trigger renders.** React doesn't realize it needs to render the component again with the new data.
+1. **Локальные переменные не сохраняются между рендерами.** Когда React снова отображает этот компонент, он делает это с нуля — изменения в локальных переменных не учитываются.
+2. **Изменения локальных переменных не запускают рендер.** React не знает, что нужно снова отобразить компонент с новыми данными.
 
-To update a component with new data, two things need to happen:
+Чтобы обновить компонент новыми данными, необходимо сделать две вещи:
 
-1. **Retain** the data between renders.
-2. **Trigger** React to render the component with new data (re-rendering).
+1. **Сохранить** данные между рендерами.
+2. **Запустить** React для отображения компонента с новыми данными (повторный рендер).
 
-The [`useState`](/reference/react/useState) Hook provides those two things:
+Хук [`useState`](/reference/react/useState) предоставляет именно это:
 
-1. A **state variable** to retain the data between renders.
-2. A **state setter function** to update the variable and trigger React to render the component again.
+1. **Переменную состояния** для сохранения данных между рендерами.
+2. **Функцию установки состояния** для обновления переменной и запуска React для повторного рендера компонента.
 
-## Adding a state variable {/*adding-a-state-variable*/}
+## Добавление переменной состояния {/*adding-a-state-variable*/}
 
-To add a state variable, import `useState` from React at the top of the file:
+Чтобы добавить переменную состояния, импортируйте `useState` из React в начале файла:
 
 ```js
 import { useState } from 'react';
 ```
 
-Then, replace this line:
+Затем замените эту строку:
 
 ```js
 let index = 0;
 ```
 
-with
+на:
 
 ```js
 const [index, setIndex] = useState(0);
 ```
 
-`index` is a state variable and `setIndex` is the setter function.
+`index` — это переменная состояния, а `setIndex` — функция-сеттер.
 
-> The `[` and `]` syntax here is called [array destructuring](https://javascript.info/destructuring-assignment) and it lets you read values from an array. The array returned by `useState` always has exactly two items.
+> Синтаксис `[` и `]` здесь называется [деструктуризацией массива](https://javascript.info/destructuring-assignment) и позволяет считывать значения из массива. Массив, возвращаемый `useState`, всегда содержит ровно два элемента.
 
-This is how they work together in `handleClick`:
+Вот как они работают вместе в `handleClick`:
 
 ```js
 function handleClick() {
@@ -198,7 +198,7 @@ function handleClick() {
 }
 ```
 
-Now clicking the "Next" button switches the current sculpture:
+Теперь нажатие кнопки "Next" переключает текущую скульптуру:
 
 <Sandpack>
 
@@ -331,57 +331,57 @@ button {
 
 </Sandpack>
 
-### Meet your first Hook {/*meet-your-first-hook*/}
+### Знакомство с вашим первым хуком {/*meet-your-first-hook*/}
 
-In React, `useState`, as well as any other function starting with "`use`", is called a Hook.
+В React `useState`, как и любая другая функция, начинающаяся с "`use`", называется хуком.
 
-*Hooks* are special functions that are only available while React is [rendering](/learn/render-and-commit#step-1-trigger-a-render) (which we'll get into in more detail on the next page). They let you "hook into" different React features.
+Хуки — это специальные функции, которые доступны только во время [рендеринга](/learn/render-and-commit#step-1-trigger-a-render) компонента (об этом мы подробнее поговорим на следующей странице). Они позволяют вам "подключаться" к различным функциям React.
 
-State is just one of those features, but you will meet the other Hooks later.
+Состояние — лишь одна из этих функций, но с другими хуками вы познакомитесь позже.
 
 <Pitfall>
 
-**Hooks—functions starting with `use`—can only be called at the top level of your components or [your own Hooks.](/learn/reusing-logic-with-custom-hooks)** You can't call Hooks inside conditions, loops, or other nested functions. Hooks are functions, but it's helpful to think of them as unconditional declarations about your component's needs. You "use" React features at the top of your component similar to how you "import" modules at the top of your file.
+**Хуки — функции, начинающиеся с `use`, — можно вызывать только на верхнем уровне ваших компонентов или [в ваших собственных хуках.](/learn/reusing-logic-with-custom-hooks)** Вы не можете вызывать хуки внутри условий, циклов или других вложенных функций. Хуки — это функции, но полезно думать о них как о безусловных декларациях о потребностях вашего компонента. Вы "используете" функции React в начале компонента, подобно тому, как вы "импортируете" модули в начале файла.
 
 </Pitfall>
 
-### Anatomy of `useState` {/*anatomy-of-usestate*/}
+### Анатомия `useState` {/*anatomy-of-usestate*/}
 
-When you call [`useState`](/reference/react/useState), you are telling React that you want this component to remember something:
+Когда вы вызываете [`useState`](/reference/react/useState), вы говорите React, что хотите, чтобы этот компонент что-то запомнил:
 
 ```js
 const [index, setIndex] = useState(0);
 ```
 
-In this case, you want React to remember `index`.
+В данном случае вы хотите, чтобы React запомнил `index`.
 
 <Note>
 
-The convention is to name this pair like `const [something, setSomething]`. You could name it anything you like, but conventions make things easier to understand across projects.
+По соглашению, эта пара называется `const [something, setSomething]`. Вы можете назвать её как угодно, но соглашения упрощают понимание кода в разных проектах.
 
 </Note>
 
-The only argument to `useState` is the **initial value** of your state variable. In this example, the `index`'s initial value is set to `0` with `useState(0)`. 
+Единственный аргумент `useState` — это **начальное значение** вашей переменной состояния. В этом примере начальное значение `index` устанавливается в `0` с помощью `useState(0)`.
 
-Every time your component renders, `useState` gives you an array containing two values:
+Каждый раз, когда ваш компонент рендерится, `useState` возвращает массив, содержащий два значения:
 
-1. The **state variable** (`index`) with the value you stored.
-2. The **state setter function** (`setIndex`) which can update the state variable and trigger React to render the component again.
+1. **Переменная состояния** (`index`) с сохранённым вами значением.
+2. **Функция-сеттер состояния** (`setIndex`), которая может обновлять переменную состояния и запускать повторный рендеринг компонента React.
 
-Here's how that happens in action:
+Вот как это происходит в действии:
 
 ```js
 const [index, setIndex] = useState(0);
 ```
 
-1. **Your component renders the first time.** Because you passed `0` to `useState` as the initial value for `index`, it will return `[0, setIndex]`. React remembers `0` is the latest state value.
-2. **You update the state.** When a user clicks the button, it calls `setIndex(index + 1)`. `index` is `0`, so it's `setIndex(1)`. This tells React to remember `index` is `1` now and triggers another render.
-3. **Your component's second render.** React still sees `useState(0)`, but because React *remembers* that you set `index` to `1`, it returns `[1, setIndex]` instead.
-4. And so on!
+1. **Ваш компонент рендерится в первый раз.** Поскольку вы передали `0` в `useState` в качестве начального значения для `index`, он вернёт `[0, setIndex]`. React запоминает, что `0` — это последнее значение состояния.
+2. **Вы обновляете состояние.** Когда пользователь нажимает кнопку, вызывается `setIndex(index + 1)`. `index` равен `0`, поэтому получается `setIndex(1)`. Это говорит React запомнить, что `index` теперь равен `1`, и запускает повторный рендеринг.
+3. **Второй рендеринг вашего компонента.** React по-прежнему видит `useState(0)`, но поскольку React *помнит*, что вы установили `index` в `1`, он возвращает `[1, setIndex]` вместо этого.
+4. И так далее!
 
-## Giving a component multiple state variables {/*giving-a-component-multiple-state-variables*/}
+## Использование нескольких переменных состояния в компоненте {/*giving-a-component-multiple-state-variables*/}
 
-You can have as many state variables of as many types as you like in one component. This component has two state variables, a number `index` and a boolean `showMore` that's toggled when you click "Show details":
+В одном компоненте может быть сколько угодно переменных состояния любого типа. Этот компонент имеет две переменные состояния: число `index` и булево значение `showMore`, которое переключается при нажатии на кнопку «Show details»:
 
 <Sandpack>
 
@@ -520,19 +520,19 @@ button {
 
 </Sandpack>
 
-It is a good idea to have multiple state variables if their state is unrelated, like `index` and `showMore` in this example. But if you find that you often change two state variables together, it might be easier to combine them into one. For example, if you have a form with many fields, it's more convenient to have a single state variable that holds an object than state variable per field. Read [Choosing the State Structure](/learn/choosing-the-state-structure) for more tips.
+Иметь несколько переменных состояния — хорошая практика, если их состояние не связано друг с другом, как `index` и `showMore` в этом примере. Но если вы обнаружите, что часто изменяете две переменные состояния вместе, возможно, будет проще объединить их в одну. Например, если у вас есть форма с множеством полей, удобнее иметь одну переменную состояния, хранящую объект, чем по переменной состояния на каждое поле. Читайте [Выбор структуры состояния](/learn/choosing-the-state-structure) для получения дополнительных советов.
 
 <DeepDive>
 
-#### How does React know which state to return? {/*how-does-react-know-which-state-to-return*/}
+#### Как React узнает, какое состояние вернуть? {/*how-does-react-know-which-state-to-return*/}
 
-You might have noticed that the `useState` call does not receive any information about *which* state variable it refers to. There is no "identifier" that is passed to `useState`, so how does it know which of the state variables to return? Does it rely on some magic like parsing your functions? The answer is no.
+Возможно, вы заметили, что вызов `useState` не получает никакой информации о том, к какой переменной состояния он относится. Нет никакого «идентификатора», передаваемого в `useState`, так как же он узнает, какую из переменных состояния вернуть? Полагается ли он на какую-то магию, например, парсинг ваших функций? Ответ — нет.
 
-Instead, to enable their concise syntax, Hooks **rely on a stable call order on every render of the same component.** This works well in practice because if you follow the rule above ("only call Hooks at the top level"), Hooks will always be called in the same order. Additionally, a [linter plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks) catches most mistakes.
+Вместо этого, чтобы обеспечить лаконичный синтаксис, хуки **полагаются на стабильный порядок вызовов при каждом рендеринге одного и того же компонента.** На практике это хорошо работает, потому что если вы следуете правилу выше («вызывайте хуки только на верхнем уровне»), хуки всегда будут вызываться в одном и том же порядке. Кроме того, [плагин линтера](https://www.npmjs.com/package/eslint-plugin-react-hooks) улавливает большинство ошибок.
 
-Internally, React holds an array of state pairs for every component. It also maintains the current pair index, which is set to `0` before rendering. Each time you call `useState`, React gives you the next state pair and increments the index. You can read more about this mechanism in [React Hooks: Not Magic, Just Arrays.](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)
+Внутренне React хранит массив пар состояний для каждого компонента. Он также поддерживает текущий индекс пары, который устанавливается в `0` перед рендерингом. Каждый раз, когда вы вызываете `useState`, React предоставляет вам следующую пару состояний и увеличивает индекс. Вы можете прочитать больше об этом механизме в [React Hooks: Not Magic, Just Arrays.](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)
 
-This example **doesn't use React** but it gives you an idea of how `useState` works internally:
+Этот пример **не использует React**, но он дает представление о том, как `useState` работает внутри:
 
 <Sandpack>
 
@@ -540,37 +540,37 @@ This example **doesn't use React** but it gives you an idea of how `useState` wo
 let componentHooks = [];
 let currentHookIndex = 0;
 
-// How useState works inside React (simplified).
+// Как useState работает внутри React (упрощенно).
 function useState(initialState) {
   let pair = componentHooks[currentHookIndex];
   if (pair) {
-    // This is not the first render,
-    // so the state pair already exists.
-    // Return it and prepare for next Hook call.
+    // Это не первый рендер,
+    // поэтому пара состояний уже существует.
+    // Возвращаем ее и готовимся к следующему вызову хука.
     currentHookIndex++;
     return pair;
   }
 
-  // This is the first time we're rendering,
-  // so create a state pair and store it.
+  // Мы рендеримся впервые,
+  // поэтому создаем пару состояний и сохраняем ее.
   pair = [initialState, setState];
 
   function setState(nextState) {
-    // When the user requests a state change,
-    // put the new value into the pair.
+    // Когда пользователь запрашивает изменение состояния,
+    // помещаем новое значение в пару.
     pair[0] = nextState;
     updateDOM();
   }
 
-  // Store the pair for future renders
-  // and prepare for the next Hook call.
+  // Сохраняем пару для будущих рендеров
+  // и готовимся к следующему вызову хука.
   componentHooks[currentHookIndex] = pair;
   currentHookIndex++;
   return pair;
 }
 
 function Gallery() {
-  // Each useState() call will get the next pair.
+  // Каждый вызов useState() получит следующую пару.
   const [index, setIndex] = useState(0);
   const [showMore, setShowMore] = useState(false);
 
@@ -583,8 +583,8 @@ function Gallery() {
   }
 
   let sculpture = sculptureList[index];
-  // This example doesn't use React, so
-  // return an output object instead of JSX.
+  // Этот пример не использует React, поэтому
+  // возвращает объект вывода вместо JSX.
   return {
     onNextClick: handleNextClick,
     onMoreClick: handleMoreClick,
@@ -598,13 +598,13 @@ function Gallery() {
 }
 
 function updateDOM() {
-  // Reset the current Hook index
-  // before rendering the component.
+  // Сбрасываем текущий индекс хука
+  // перед рендерингом компонента.
   currentHookIndex = 0;
   let output = Gallery();
 
-  // Update the DOM to match the output.
-  // This is the part React does for you.
+  // Обновляем DOM в соответствии с выводом.
+  // Это то, что React делает для вас.
   nextButton.onclick = output.onNextClick;
   header.textContent = output.header;
   moreButton.onclick = output.onMoreClick;
@@ -698,7 +698,7 @@ let sculptureList = [{
   alt: 'A group of bronze hippo sculptures emerging from the sett sidewalk as if they were swimming.'
 }];
 
-// Make UI match the initial state.
+// Делаем UI соответствующим начальному состоянию.
 updateDOM();
 ```
 
@@ -724,15 +724,15 @@ button { display: block; margin-bottom: 10px; }
 
 </Sandpack>
 
-You don't have to understand it to use React, but you might find this a helpful mental model.
+Вам не обязательно понимать это, чтобы использовать React, но эта модель может быть полезной.
 
 </DeepDive>
 
-## State is isolated and private {/*state-is-isolated-and-private*/}
+## Состояние изолировано и приватно {/*state-is-isolated-and-private*/}
 
-State is local to a component instance on the screen. In other words, **if you render the same component twice, each copy will have completely isolated state!** Changing one of them will not affect the other.
+Состояние является локальным для экземпляра компонента на экране. Другими словами, **если вы отрендерите один и тот же компонент дважды, каждая копия будет иметь полностью изолированное состояние!** Изменение одного из них не повлияет на другое.
 
-In this example, the `Gallery` component from earlier is rendered twice with no changes to its logic. Try clicking the buttons inside each of the galleries. Notice that their state is independent:
+В этом примере компонент `Gallery` из предыдущего раздела рендерится дважды без изменений в его логике. Попробуйте нажать кнопки внутри каждой из галерей. Обратите внимание, что их состояние независимо:
 
 <Sandpack>
 
@@ -891,21 +891,21 @@ button {
 
 </Sandpack>
 
-This is what makes state different from regular variables that you might declare at the top of your module. State is not tied to a particular function call or a place in the code, but it's "local" to the specific place on the screen. You rendered two `<Gallery />` components, so their state is stored separately.
+Именно это отличает состояние от обычных переменных, которые вы можете объявить в начале вашего модуля. Состояние не привязано к конкретному вызову функции или месту в коде, а является «локальным» для конкретного места на экране. Вы отрендерили два компонента `<Gallery />`, поэтому их состояния хранятся отдельно.
 
-Also notice how the `Page` component doesn't "know" anything about the `Gallery` state or even whether it has any. Unlike props, **state is fully private to the component declaring it.** The parent component can't change it. This lets you add state to any component or remove it without impacting the rest of the components.
+Также обратите внимание, что компонент `Page` ничего не «знает» о состоянии `Gallery` и даже о том, есть ли оно у него. В отличие от пропсов, **состояние полностью приватно для компонента, который его объявляет.** Родительский компонент не может его изменить. Это позволяет добавлять состояние в любой компонент или удалять его, не затрагивая остальные компоненты.
 
-What if you wanted both galleries to keep their states in sync? The right way to do it in React is to *remove* state from child components and add it to their closest shared parent. The next few pages will focus on organizing state of a single component, but we will return to this topic in [Sharing State Between Components.](/learn/sharing-state-between-components)
+Что, если бы вы хотели, чтобы обе галереи синхронизировали свои состояния? Правильный способ сделать это в React — *удалить* состояние из дочерних компонентов и добавить его в их ближайший общий родительский компонент. Следующие несколько страниц будут посвящены организации состояния одного компонента, но мы вернемся к этой теме в разделе [Обмен состоянием между компонентами.](/learn/sharing-state-between-components)
 
 <Recap>
 
-* Use a state variable when a component needs to "remember" some information between renders.
-* State variables are declared by calling the `useState` Hook.
-* Hooks are special functions that start with `use`. They let you "hook into" React features like state.
-* Hooks might remind you of imports: they need to be called unconditionally. Calling Hooks, including `useState`, is only valid at the top level of a component or another Hook.
-* The `useState` Hook returns a pair of values: the current state and the function to update it.
-* You can have more than one state variable. Internally, React matches them up by their order.
-* State is private to the component. If you render it in two places, each copy gets its own state.
+* Используйте переменную состояния, когда компоненту нужно «помнить» некоторую информацию между рендерами.
+* Переменные состояния объявляются вызовом хука `useState`.
+* Хуки — это специальные функции, которые начинаются с `use`. Они позволяют вам «подключаться» к функциям React, таким как состояние.
+* Хуки могут напомнить вам об импортах: их нужно вызывать безусловно. Вызовы хуков, включая `useState`, допустимы только на верхнем уровне компонента или другого хука.
+* Хук `useState` возвращает пару значений: текущее состояние и функцию для его обновления.
+* У вас может быть несколько переменных состояния. Внутренне React сопоставляет их по порядку.
+* Состояние приватно для компонента. Если вы рендерите его в двух местах, каждая копия получает свое собственное состояние.
 
 </Recap>
 
@@ -913,11 +913,11 @@ What if you wanted both galleries to keep their states in sync? The right way to
 
 <Challenges>
 
-#### Complete the gallery {/*complete-the-gallery*/}
+#### Завершите галерею {/*complete-the-gallery*/}
 
-When you press "Next" on the last sculpture, the code crashes. Fix the logic to prevent the crash. You may do this by adding extra logic to event handler or by disabling the button when the action is not possible.
+При нажатии на «Next» на последней скульптуре код аварийно завершается. Исправьте логику, чтобы предотвратить сбой. Вы можете сделать это, добавив дополнительную логику в обработчик событий или отключив кнопку, когда действие невозможно.
 
-After fixing the crash, add a "Previous" button that shows the previous sculpture. It shouldn't crash on the first sculpture.
+После исправления сбоя добавьте кнопку «Previous», которая будет отображать предыдущую скульптуру. Она не должна аварийно завершаться на первой скульптуре.
 
 <Sandpack>
 
@@ -1215,17 +1215,34 @@ h3 {
   font-size: 100%;
 }
 img { width: 120px; height: 120px; }
+
+```
+
+```css
+button { display: block; margin-bottom: 10px; }
+.Page > * {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+h2 { margin-top: 10px; margin-bottom: 0; }
+h3 {
+  margin-top: 5px;
+  font-weight: normal;
+  font-size: 100%;
+}
+img { width: 120px; height: 120px; }
 ```
 
 </Sandpack>
 
-Notice how `hasPrev` and `hasNext` are used *both* for the returned JSX and inside the event handlers! This handy pattern works because event handler functions ["close over"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) any variables declared while rendering.
+Обратите внимание, как `hasPrev` и `hasNext` используются *как* в возвращаемом JSX, так и внутри обработчиков событий! Этот удобный шаблон работает, потому что функции обработчиков событий ["замыкают"](https://developer.mozilla.org/ru/docs/Web/JavaScript/Closures) любые переменные, объявленные во время рендеринга.
 
 </Solution>
 
-#### Fix stuck form inputs {/*fix-stuck-form-inputs*/}
+#### Исправление зависших полей ввода {/*fix-stuck-form-inputs*/}
 
-When you type into the input fields, nothing appears. It's like the input values are "stuck" with empty strings. The `value` of the first `<input>` is set to always match the `firstName` variable, and the `value` for the second `<input>` is set to always match the `lastName` variable. This is correct. Both inputs have `onChange` event handlers, which try to update the variables based on the latest user input (`e.target.value`). However, the variables don't seem to "remember" their values between re-renders. Fix this by using state variables instead.
+При вводе текста в поля ввода ничего не появляется. Значения полей как будто "зависли" пустыми строками. Значение первого `<input>` всегда соответствует переменной `firstName`, а второго — переменной `lastName`. Это правильно. Оба поля имеют обработчики событий `onChange`, которые пытаются обновить переменные на основе последнего ввода пользователя (`e.target.value`). Однако переменные, похоже, не "помнят" свои значения между повторными рендерами. Исправьте это, используя переменные состояния.
 
 <Sandpack>
 
@@ -1274,7 +1291,7 @@ h1 { margin-top: 10px; }
 
 <Solution>
 
-First, import `useState` from React. Then replace `firstName` and `lastName` with state variables declared by calling `useState`. Finally, replace every `firstName = ...` assignment with `setFirstName(...)`, and do the same for `lastName`. Don't forget to update `handleReset` too so that the reset button works.
+Сначала импортируйте `useState` из React. Затем замените `firstName` и `lastName` переменными состояния, объявленными вызовом `useState`. Наконец, замените каждое присваивание `firstName = ...` на `setFirstName(...)`, и сделайте то же самое для `lastName`. Не забудьте также обновить `handleReset`, чтобы кнопка сброса работала.
 
 <Sandpack>
 
@@ -1325,13 +1342,13 @@ h1 { margin-top: 10px; }
 
 </Solution>
 
-#### Fix a crash {/*fix-a-crash*/}
+#### Исправление ошибки {/*fix-a-crash*/}
 
-Here is a small form that is supposed to let the user leave some feedback. When the feedback is submitted, it's supposed to display a thank-you message. However, it crashes with an error message saying "Rendered fewer hooks than expected". Can you spot the mistake and fix it?
+Вот небольшая форма, которая должна позволять пользователю оставить отзыв. После отправки отзыва должно отображаться сообщение с благодарностью. Однако она аварийно завершается с сообщением об ошибке "Rendered fewer hooks than expected" (Ожидалось меньше хуков при рендеринге). Можете ли вы найти ошибку и исправить её?
 
 <Hint>
 
-Are there any limitations on _where_ Hooks may be called? Does this component break any rules? Check if there are any comments disabling the linter checks--this is where the bugs often hide!
+Существуют ли ограничения на _место_ вызова хуков? Нарушает ли этот компонент какие-либо правила? Проверьте, нет ли комментариев, отключающих проверки линтера — именно там часто скрываются ошибки!
 
 </Hint>
 
@@ -1370,9 +1387,9 @@ export default function FeedbackForm() {
 
 <Solution>
 
-Hooks can only be called at the top level of the component function. Here, the first `isSent` definition follows this rule, but the `message` definition is nested in a condition.
+Хуки можно вызывать только на верхнем уровне функции компонента. Здесь первое определение `isSent` следует этому правилу, но определение `message` вложено в условие.
 
-Move it out of the condition to fix the issue:
+Переместите его из условия, чтобы исправить проблему:
 
 <Sandpack>
 
@@ -1407,9 +1424,9 @@ export default function FeedbackForm() {
 
 </Sandpack>
 
-Remember, Hooks must be called unconditionally and always in the same order!
+Помните, что хуки должны вызываться безусловно и всегда в одном и том же порядке!
 
-You could also remove the unnecessary `else` branch to reduce the nesting. However, it's still important that all calls to Hooks happen *before* the first `return`.
+Вы также можете удалить ненужную ветку `else`, чтобы уменьшить вложенность. Однако по-прежнему важно, чтобы все вызовы хуков происходили *перед* первым `return`.
 
 <Sandpack>
 
@@ -1444,19 +1461,19 @@ export default function FeedbackForm() {
 
 </Sandpack>
 
-Try moving the second `useState` call after the `if` condition and notice how this breaks it again.
+Попробуйте переместить второй вызов `useState` после условия `if` и заметьте, как это снова сломает код.
 
-If your linter is [configured for React](/learn/editor-setup#linting), you should see a lint error when you make a mistake like this. If you don't see an error when you try the faulty code locally, you need to set up linting for your project. 
+Если ваш линтер [настроен для React](/learn/editor-setup#linting), вы увидите ошибку линтера при совершении подобной ошибки. Если вы не видите ошибки при локальном тестировании некорректного кода, вам необходимо настроить линтинг для вашего проекта.
 
 </Solution>
 
-#### Remove unnecessary state {/*remove-unnecessary-state*/}
+#### Удаление ненужного состояния {/*remove-unnecessary-state*/}
 
-When the button is clicked, this example should ask for the user's name and then display an alert greeting them. You tried to use state to keep the name, but for some reason the first time it shows "Hello, !", and then "Hello, [name]!" with the previous input every time after.
+При нажатии на кнопку пример должен запрашивать имя пользователя и затем отображать приветствие. Вы попытались использовать состояние для хранения имени, но по какой-то причине первый раз отображается "Hello, !", а затем каждый раз "Hello, [имя]!" с предыдущим вводом.
 
-To fix this code, remove the unnecessary state variable. (We will discuss about [why this didn't work](/learn/state-as-a-snapshot) later.)
+Чтобы исправить этот код, удалите ненужную переменную состояния. (Мы обсудим, [почему это не сработало](/learn/state-as-a-snapshot) позже.)
 
-Can you explain why this state variable was unnecessary?
+Можете ли вы объяснить, почему эта переменная состояния была ненужной?
 
 <Sandpack>
 
@@ -1483,7 +1500,7 @@ export default function FeedbackForm() {
 
 <Solution>
 
-Here is a fixed version that uses a regular `name` variable declared in the function that needs it:
+Вот исправленная версия, которая использует обычную переменную `name`, объявленную в функции, которая в ней нуждается:
 
 <Sandpack>
 
@@ -1504,7 +1521,7 @@ export default function FeedbackForm() {
 
 </Sandpack>
 
-A state variable is only necessary to keep information between re-renders of a component. Within a single event handler, a regular variable will do fine. Don't introduce state variables when a regular variable works well.
+Переменная состояния необходима только для сохранения информации между повторными рендерами компонента. Внутри одного обработчика событий обычная переменная подойдет. Не вводите переменные состояния, когда обычная переменная работает хорошо.
 
 </Solution>
 
