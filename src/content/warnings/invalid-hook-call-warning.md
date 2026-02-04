@@ -1,31 +1,31 @@
 ---
-title: Rules of Hooks
+title: Правила хуков
 ---
 
 Скорее всего, вы перешли на эту страницу, потому что получили следующее сообщение об ошибке:
 
 <ConsoleBlock level="error">
 
-Hooks can only be called inside the body of a function component.
+Хуки можно вызывать только внутри тела функционального компонента.
 
 </ConsoleBlock>
  
 Есть три основные причины, по которым вы могли увидеть это предупреждение:
 
-1. You might be **breaking the Rules of Hooks**.
-2. You might have **mismatching versions** of React and React DOM.
-3. You might have **more than one copy of React** in the same app.
+1. Вы можете **нарушать Правила хуков**.
+2. У вас могут быть **несовпадающие версии** React и React DOM.
+3. В вашем приложении может быть **более одной копии React**.
 
 Разберём каждый из этих случаев.
 
-## Breaking Rules of Hooks {/*breaking-rules-of-hooks*/}
+## Нарушение Правил хуков {/*breaking-rules-of-hooks*/}
 
-Functions whose names start with `use` are called [*Hooks*](/reference/react) in React.
+Функции, имена которых начинаются с `use`, называются [*хуками*](/reference/react) в React.
 
-**Don’t call Hooks inside loops, conditions, or nested functions.** Instead, always use Hooks at the top level of your React function, before any early returns. You can only call Hooks while React is rendering a function component:
+**Не вызывайте хуки внутри циклов, условий или вложенных функций.** Вместо этого всегда используйте хуки на верхнем уровне вашего React-компонента, перед любыми досрочными возвратами. Вы можете вызывать хуки только во время рендеринга компонента функцией React:
 
-* ✅ Call them at the top level in the body of a [function component](/learn/your-first-component).
-* ✅ Call them at the top level in the body of a [custom Hook](/learn/reusing-logic-with-custom-hooks).
+* ✅ Вызывайте их на верхнем уровне в теле [функционального компонента](/learn/your-first-component).
+* ✅ Вызывайте их на верхнем уровне в теле [пользовательского хука](/learn/reusing-logic-with-custom-hooks).
 
 ```js{2-3,8-9}
 function Counter() {
@@ -41,20 +41,20 @@ function useWindowWidth() {
 }
 ```
 
-It’s **not** supported to call Hooks (functions starting with `use`) in any other cases, for example:
+Вызывать хуки (функции, начинающиеся с `use`) **нельзя** в других случаях, например:
 
-* 🔴 Do not call Hooks inside conditions or loops.
-* 🔴 Do not call Hooks after a conditional `return` statement.
-* 🔴 Do not call Hooks in event handlers.
-* 🔴 Do not call Hooks in class components.
-* 🔴 Do not call Hooks inside functions passed to `useMemo`, `useReducer`, or `useEffect`.
+* 🔴 Не вызывайте хуки внутри условий или циклов.
+* 🔴 Не вызывайте хуки после условного оператора `return`.
+* 🔴 Не вызывайте хуки в обработчиках событий.
+* 🔴 Не вызывайте хуки в классовых компонентах.
+* 🔴 Не вызывайте хуки внутри функций, передаваемых в `useMemo`, `useReducer` или `useEffect`.
 
 При нарушении перечисленных правил, можно столкнуться с этой ошибкой.
 
 ```js{3-4,11-12,20-21}
 function Bad({ cond }) {
   if (cond) {
-    // 🔴 Bad: inside a condition (to fix, move it outside!)
+    // 🔴 Плохо: внутри условия (чтобы исправить, вынесите его наружу!)
     const theme = useContext(ThemeContext);
   }
   // ...
@@ -62,7 +62,7 @@ function Bad({ cond }) {
 
 function Bad() {
   for (let i = 0; i < 10; i++) {
-    // 🔴 Bad: inside a loop (to fix, move it outside!)
+    // 🔴 Плохо: внутри цикла (чтобы исправить, вынесите его наружу!)
     const theme = useContext(ThemeContext);
   }
   // ...
@@ -72,7 +72,7 @@ function Bad({ cond }) {
   if (cond) {
     return;
   }
-  // 🔴 Bad: after a conditional return (to fix, move it before the return!)
+  // 🔴 Плохо: после условного возврата (чтобы исправить, переместите его перед return!)
   const theme = useContext(ThemeContext);
   // ...
 }
@@ -96,28 +96,28 @@ function Bad() {
 
 class Bad extends React.Component {
   render() {
-    // 🔴 Bad: inside a class component (to fix, write a function component instead of a class!)
+    // 🔴 Плохо: внутри классового компонента (чтобы исправить, напишите функциональный компонент вместо классового!)
     useEffect(() => {})
     // ...
   }
 }
 ```
 
-You can use the [`eslint-plugin-react-hooks` plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks) to catch these mistakes.
+Вы можете использовать плагин [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) для отлова этих ошибок.
 
 <Note>
 
-[Custom Hooks](/learn/reusing-logic-with-custom-hooks) *may* call other Hooks (that's their whole purpose). This works because custom Hooks are also supposed to only be called while a function component is rendering.
+[Пользовательские хуки](/learn/reusing-logic-with-custom-hooks) *могут* вызывать другие хуки (в этом их основная цель). Это работает, потому что пользовательские хуки также должны вызываться только во время рендеринга функционального компонента.
 
 </Note>
 
-## Mismatching Versions of React and React DOM {/*mismatching-versions-of-react-and-react-dom*/}
+## Несовпадающие версии React и React DOM {/*mismatching-versions-of-react-and-react-dom*/}
 
-You might be using a version of `react-dom` (< 16.8.0) or `react-native` (< 0.59) that doesn't yet support Hooks. You can run `npm ls react-dom` or `npm ls react-native` in your application folder to check which version you're using. If you find more than one of them, this might also create problems (more on that below).
+Возможно, вы используете версию `react-dom` (< 16.8.0) или `react-native` (< 0.59), которая ещё не поддерживает хуки. Вы можете выполнить `npm ls react-dom` или `npm ls react-native` в папке вашего приложения, чтобы проверить используемую версию. Если вы обнаружите более одной из них, это также может вызвать проблемы (об этом ниже).
 
-## Duplicate React {/*duplicate-react*/}
+## Дублирование React {/*duplicate-react*/}
 
-Если эти `react` импорты ссылаются на два разных объекта экспорта, вы увидите такое предупреждение. Это произойдёт, если у вас случайно **оказалось несколько копий** пакета `react`
+Если эти импорты `react` ссылаются на два разных объекта экспорта, вы увидите такое предупреждение. Это произойдёт, если у вас случайно **оказалось несколько копий** пакета `react`
 
 Если вы используете Node для управления пакетами, можете проверить копии пакета, находясь в папке проекта:
 
@@ -127,7 +127,7 @@ npm ls react
 
 </TerminalBlock>
 
-If you see more than one React, you'll need to figure out why this happens and fix your dependency tree. For example, maybe a library you're using incorrectly specifies `react` as a dependency (rather than a peer dependency). Until that library is fixed, [Yarn resolutions](https://yarnpkg.com/lang/en/docs/selective-version-resolutions/) is one possible workaround.
+Если вы видите более одного React, вам нужно выяснить, почему это происходит, и исправить дерево зависимостей. Например, возможно, библиотека, которую вы используете, некорректно указывает `react` как зависимость (а не как peer dependency). Пока эта библиотека не будет исправлена, [Yarn resolutions](https://yarnpkg.com/lang/en/docs/selective-version-resolutions/) является одним из возможных обходных путей.
 
 Вы также можете попробовать отладить эту проблему, добавив логирование и перезапустив сервер разработки:
 
@@ -147,7 +147,7 @@ console.log(window.React1 === window.React2);
 
 <Note>
 
-In general, React supports using multiple independent copies on one page (for example, if an app and a third-party widget both use it). It only breaks if `require('react')` resolves differently between the component and the `react-dom` copy it was rendered with.
+В целом, React поддерживает использование нескольких независимых копий на одной странице (например, если приложение и сторонний виджет используют его). Это ломается только в том случае, если `require('react')` разрешается по-разному между компонентом и копией `react-dom`, с которой он был отрисован.
 
 </Note>
 
