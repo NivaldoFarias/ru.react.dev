@@ -1,9 +1,822 @@
 ---
-title: "Sunsetting Create React App"
+title: "# Перевод на русский язык сайта reactjs.org
+
+
+  Текущий прогресс: https://github.com/reactjs/ru.reactjs.org/issues/843
+
+
+  Пожалуйста, используйте этот ишью, если вы хотите что-то перевести и узнать.
+
+
+  ## Оглавление
+
+
+  * [Перевод на русский язык сайта
+  reactjs.org](#Перевод-на-русский-язык-сайта-reactjsorg)
+
+  \  * [Оглавление](#Оглавление)
+
+  \  * [Общие правила](#Общие-правила)
+
+  \    * [Слово живое и мёртвое](#Слово-живое-и-мёртвое)
+
+  \  * [Универсальное руководство по стилю](#Универсальное-руководство-по-стилю)
+
+  \    * [Идентификаторы заголовков](#Идентификаторы-заголовков)
+
+  \    * [Текст в блоках кода](#Текст-в-блоках-кода)
+
+  \    * [Внешние ссылки](#Внешние-ссылки)
+
+  \  * [Соглашение по переводу (глоссарий)](#Соглашение-по-переводу-глоссарий)
+
+
+  ## Общие правила
+
+
+  - _Вы_ и его производные пишите с маленькой буквы
+
+  - Всегда используйте букву `ё` (это легко соблюдать с помощью [данного
+  npm-пакета](https://github.com/hcodes/eyo))
+
+  - Используйте тире вместо дефиса (оно должно быть намного длиннее, чем дефис).
+  Тире: `—`, дефис: `-`
+
+  - Переводите комментарии в примерах кода, но не содержимое
+
+  - Используйте терминологию [словаря
+  «Веб-стандартов»](https://github.com/web-standards-ru/dictionary), если нет
+  исходного варианта в таблице ниже
+
+  - Ссылки на ресурсы (MDN, Wikipedia) должны вести на русскую версию, если есть
+  соответствующий перевод.
+
+  - Иностранные имена переводите с указанием оригинального имени в скобках: _Дэн
+  Абрамов (Dan Abramov)_. При этом обязательно проверьте уже существующий
+  перевод имени в [словаре имён
+  «Веб-стандартов»](https://github.com/web-standards-ru/dictionary/blob/master/\
+  names.md)
+
+  - Не переводите наименования компаний (Facebook, Airbnb), библиотек (Jest,
+  Enzyme) и т.д.
+
+  - Не переводите аббревиатуры (API, DOM, HOC, UI).
+
+  - Исключайте отсылки на пол читателя (см. секцию 3 на [этой
+  странице](http://www.un.org/ru/gender-inclusive-language/guidelines.shtml))
+
+  - Названия статей и заголовки пишутся с одной заглавной буквы («Компоненты и
+  пропсы», не «Компоненты и Пропсы»).
+
+
+  ### Слово живое и мёртвое
+
+
+  Прежде чем переводить, почитайте пару страниц из «Слова живого и мёртвого»
+  Норы Галь. Хотя бы эти две:
+
+
+  * [Берегись канцелярита!](http://www.vavilon.ru/noragal/slovo2.html)
+
+  * [Словесная алгебра](http://www.vavilon.ru/noragal/slovo4.html)
+
+
+  **По мере возможности, избегайте отглагольных существительных!**
+
+
+  * **Деревянно:** *для открытия*
+
+  * **Живо:** *чтобы открыть*
+
+
+  **Также избегайте пассивного залога:**
+
+
+  * **Деревянно:** *будет рассказано*
+
+  * **Живо:** *мы узнаем*
+
+
+  **Предпочитайте простые слова (за исключением терминологии ниже):**
+
+
+  * **Деревянно:** *демонстрирует*
+
+  * **Живо:** *показывает*
+
+
+  Чтобы избежать кальки, можно брать смысл предложения, а потом перефразировать
+  так, как объясняли бы старшему коллеге. Если предложение звучит нелепо вслух,
+  то его надо переписать. Например:
+
+
+  **Оригинал:** *React has been designed from the start for gradual adoption,
+  and you can use as little or as much React as you need.*
+
+
+  **Мёртвая калька:** *React был спроектирован с самого начала для постепенного
+  внедрения, и вы можете использовать столько React, сколько вам нужно.*
+
+
+  **Нормальный перевод:** *Чтобы внедрить React, не надо ничего переписывать.
+  Его можно использовать как для маленькой кнопки, так и для целого приложения.*
+
+
+  Небольшие вольности в переводе допускаются, но только если они помогают
+  передать смысл. Перевод не должен быть ни деревянным, ни фамильярным. Истина
+  где-то посередине.
+
+
+  ## Универсальное руководство по стилю
+
+
+  Описанные ниже правила пришли [из
+  репозитория](https://github.com/reactjs/reactjs.org-translation/blob/master/s\
+  tyle-guide.md), предписывающего стиль общий для **всех** языков, на которые
+  переводится документация.
+
+
+  ### Идентификаторы заголовков
+
+
+  Каждый заголовок имеет явный идентификатор:
+
+
+  ```md
+
+  ## Try React {#try-react}
+
+  ```
+
+
+  **НЕ** переводите такие идентификаторы! Они используются для навигации.
+  Изменение идентификатора неизбежно приведёт к поломке, если на документ
+  ссылкаются извне, например так:
+
+
+  ```md
+
+  Прочтите [главу для начинающих](/getting-started#try-react), чтобы узнать
+  больше.
+
+  ```
+
+
+  ✅ Можно:
+
+
+  ```md
+
+  ## Попробуйте React {#try-react}
+
+  ```
+
+
+  ❌ НЕЛЬЗЯ:
+
+
+  ```md
+
+  ## Попробуйте React {#попробуйте-react}
+
+  ```
+
+
+  Это сломает ссылку, приведённую в примере выше.
+
+
+  ### Текст в блоках кода
+
+
+  Не переводите текст в блоках кода, кроме комментариев. А вот комментарии и
+  текст в строках следует переводить, если они не относятся к коду.
+
+
+  Пример:
+
+  ```js
+
+  // Example
+
+  const element = <h1>Hello, world</h1>;
+
+  ReactDOM.render(element, document.getElementById('root'));
+
+  ```
+
+
+  ✅ МОЖНО:
+
+
+  ```js
+
+  // Пример
+
+  const element = <h1>Hello, world</h1>;
+
+  ReactDOM.render(element, document.getElementById('root'));
+
+  ```
+
+
+  ✅ ТОЖЕ МОЖНО:
+
+
+  ```js
+
+  // Пример
+
+  const element = <h1>Здравствуй, мир!</h1>;
+
+  ReactDOM.render(element, document.getElementById('root'));
+
+  ```
+
+
+  ❌ НЕЛЬЗЯ:
+
+
+  ```js
+
+  // Пример
+
+  const element = <h1>Здравствуй, мир!</h1>;
+
+  // \"root\" ссылается на идентификатор элемента.
+
+  // Не переводите его!
+
+  ReactDOM.render(element, document.getElementById('корень'));
+
+  ```
+
+
+  ❌ СОВСЕМ НЕЛЬЗЯ:
+
+
+  ```js
+
+  // Пример
+
+  пост элемент = <з1>Здравствуй, мир!</з1>;
+
+  РеактДОМ.отрендери(элемент, документ.получиЭлементПоАйди('корень'));
+
+  ```
+
+
+  ### Внешние ссылки
+
+
+  Если внешняя ссылка ведёт к статье на [MDN] или [Wikipedia], и там существует
+  статья на русском языке, исправьте ссылку, чтобы она указывала на русский
+  вариант, даже если он неполный или требует улучшения.
+
+
+  [MDN]: https://developer.mozilla.org/en-US/
+
+  [Wikipedia]: https://en.wikipedia.org/wiki/Main_Page
+
+
+  Пример:
+
+
+  ```md
+
+  React elements are
+  [immutable](https://en.wikipedia.org/wiki/Immutable_object).
+
+  ```
+
+
+  ✅ OK:
+
+
+  ```md
+
+  Элементы React
+  [иммутабельны](https://ru.wikipedia.org/wiki/%D0%9D%D0%B5%D0%B8%D0%B7%D0%BC%D\
+  0%B5%D0%BD%D1%8F%D0%B5%D0%BC%D1%8B%D0%B9_%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82\
+  ).
+
+  ```
+
+
+  Для ссылок, у которых нету языковых эквивалентов (Stack Overflow, видео на
+  YouTube, и т. д.), просто оставьте оригинальный вариант как есть.
+
+
+  ## Соглашение по переводу (глоссарий)
+
+
+  **Пожалуйста, поддерживайте глоссарий в алфавитном порядке.**
+
+
+  | Оригинальный термин | Перевод |
+
+  | ------------------ | ---------- |
+
+  | API reference | справочник API |
+
+  | array | массив |
+
+  | arrow function | стрелочная функция |
+
+  | attribute | атрибут |
+
+  | batch | группа обновлений |
+
+  | batching | группировка |
+
+  | bind | привязка |
+
+  | bug | баг, дефект |
+
+  | bundler | бандлер |
+
+  | cache | кеш |
+
+  | callback | колбэк |
+
+  | camelCase | *camelCase* |
+
+  | child | дочерний |
+
+  | child component | дочерний компонент |
+
+  | class component | классовый компонент |
+
+  | cleanup | сброс (*напр., сбрасываемый эффект, сбросить эффект, сбрасывающая
+  функция*) |
+
+  | code splitting | разделение кода |
+
+  | codemod | codemod-скрипт |
+
+  | commit | фиксация |
+
+  | concurrent mode | конкурентный режим |
+
+  | context | контекст |
+
+  | (un)controlled component | (не)управляемый компонент |
+
+  | cross-cutting concerns | cквозная функциональность |
+
+  | custom | пользовательский (*напр., пользовательские хуки*) |
+
+  | debugging | отладка |
+
+  | destructuring | деструктуризация |
+
+  | development | разработка |
+
+  | development mode | режим разработки |
+
+  | developer tools | инструменты разработки |
+
+  | display name | отображаемое имя |
+
+  | DOM container | DOM-контейнер |
+
+  | effect | эффект |
+
+  | error | ошибка |
+
+  | error boundary | предохранитель |
+
+  | escape hatch | лазейка (*напр., императивные лазейки*) |
+
+  | fallback | запасной |
+
+  | feature | возможность (*менее предпочтительный синоним: функциональность*) |
+
+  | folder | папка |
+
+  | framework | фреймворк |
+
+  | function component | функциональный компонент |
+
+  | helper | вспомогательный(ая); *напр., helper function — вспомогательная
+  функция* |
+
+  | Higher-Order Component(s) | Компонент(ы) высшего порядка |
+
+  | hook | хук *(с маленькой буквы)* *(напр., хук эффекта, хук контекста)* |
+
+  | incapsulation | инкапсуляция |
+
+  | incapsulated | инкапсулированный |
+
+  | key | ключ |
+
+  | lazy initialization | ленивая инициализация |
+
+  | library | библиотека |
+
+  | lifecycle | жизненный цикл |
+
+  | lifecycle method | метод жизненного цикла |
+
+  | lifting state up | подъём состояния, поднимать состояние |
+
+  | local state | внутреннее состояние |
+
+  | lowercase | нижний регистр |
+
+  | mixin | примесь |
+
+  | mock | фиктивный |
+
+  | (im)mutable | (им)мутабельный |
+
+  | (im)mutability | (им)мутабельность |
+
+  | (un)mount | (раз)монтирование |
+
+  | mutate | мутировать |
+
+  | native | нативный |
+
+  | Note | Примечание |
+
+  | online | онлайн |
+
+  | online playground | онлайн-песочница |
+
+  | paint | отрисовка, перерисовка |
+
+  | persistent | персистентность, персистентный |
+
+  | phase | этап (*напр., этап рендеринга, этап фиксации*) |
+
+  | prop | проп *(ед. ч.)* |
+
+  | props | пропсы *(мн. ч.)* |
+
+  | production | продакшен |
+
+  | production mode | продакшен-режим |
+
+  | profiling | профилирование |
+
+  | Profiler | Profiler *(если имеется в виду компонент Profiler)*;
+  профилировщик *(если имеется в виду инструмент для профилирования)*
+
+  | React | React |
+
+  | React element | React-элемент, элемент React |
+
+  | reconciliation | согласование |
+
+  | reducer | редюсер |
+
+  | ref | реф *(ед. ч.)* |
+
+  | refs | рефы *(мн. ч.)* |
+
+  | ref forwarding | перенаправление рефа |
+
+  | render(ing) | рендер, рендерить, отрендерить |
+
+  | renderer | рендерер (*напр., поверхностный рендерер*) |
+
+  | re-render(ing) | (по контексту) рендер, повторный рендер, последующий
+  рендер, отрендерить снова |
+
+  | render prop | рендер-проп *(ед. ч.)* |
+
+  | render props | рендер-пропсы *(мн. ч.)* |
+
+  | reuse | повторное использование |
+
+  | (previous/next) section | (предыдущая/следующая) глава *(только в разделе
+  Основные понятия)* |
+
+  | Set of interactions | Множество «взаимодействий»
+
+  | shallow | поверхностное (сравнение, равенство), поверхностный (рендеринг) |
+
+  | side effect | побочный эффект |
+
+  | snapshot | снимок |
+
+  | state | состояние |
+
+  | stateful component | компонент с состоянием |
+
+  | stateless component | компонент без состояния |
+
+  | suspense | задержка |
+
+  | tag | тег |
+
+  | template literals | шаблонные строки |
+
+  | Tip | Совет |
+
+  | TLDR | Вкратце |
+
+  | Try it on CodePen | Посмотреть на CodePen |
+
+  | tutorial | введение |
+
+  | unidirectional data flow | однонаправленный поток данных |
+
+  | UI | UI |
+
+  | update | обновление |
+
+  | user interface | интерфейс (добавляйте «пользовательский» только если по
+  контексту непонятно) |
+
+  | Warning | Предупреждение |"
 author: Matt Carroll and Ricky Hanlon
 date: 2025/02/14
-description: Today, we’re deprecating Create React App for new apps, and encouraging existing apps to migrate to a framework, or to migrate to a build tool like Vite, Parcel, or RSBuild. We’re also providing docs for when a framework isn’t a good fit for your project, you want to build your own framework, or you just want to learn how React works by building a React app from scratch.
+description: Сегодня мы **устареваем** Create React App для новых приложений и
+  рекомендуем существующим приложениям перейти на фреймворк или на инструмент
+  сборки, такой как Vite, Parcel или RSBuild. Мы также предоставляем
+  документацию для тех случаев, когда фреймворк не подходит для вашего проекта,
+  вы хотите создать свой собственный фреймворк или просто хотите узнать, как
+  работает React, создав приложение React с нуля.
 ---
+```markdown
+## РУКОВОДСТВО ПО ПЕРЕВОДУ
+Примените следующие точные переводы для указанных терминов:
+# Перевод на русский язык сайта reactjs.org
+
+Текущий прогресс: https://github.com/reactjs/ru.reactjs.org/issues/843
+
+Пожалуйста, используйте этот ишью, если вы хотите что-то перевести и узнать.
+
+## Оглавление
+
+* [Перевод на русский язык сайта reactjs.org](#Перевод-на-русский-язык-сайта-reactjsorg)
+  * [Оглавление](#Оглавление)
+  * [Общие правила](#Общие-правила)
+    * [Слово живое и мёртвое](#Слово-живое-и-мёртвое)
+  * [Универсальное руководство по стилю](#Универсальное-руководство-по-стилю)
+    * [Идентификаторы заголовков](#Идентификаторы-заголовков)
+    * [Текст в блоках кода](#Текст-в-блоках-кода)
+    * [Внешние ссылки](#Внешние-ссылки)
+  * [Соглашение по переводу (глоссарий)](#Соглашение-по-переводу-глоссарий)
+
+## Общие правила
+
+- _Вы_ и его производные пишите с маленькой буквы
+- Всегда используйте букву `ё` (это легко соблюдать с помощью [данного npm-пакета](https://github.com/hcodes/eyo))
+- Используйте тире вместо дефиса (оно должно быть намного длиннее, чем дефис). Тире: `—`, дефис: `-`
+- Переводите комментарии в примерах кода, но не содержимое
+- Используйте терминологию [словаря «Веб-стандартов»](https://github.com/web-standards-ru/dictionary), если нет исходного варианта в таблице ниже
+- Ссылки на ресурсы (MDN, Wikipedia) должны вести на русскую версию, если есть соответствующий перевод.
+- Иностранные имена переводите с указанием оригинального имени в скобках: _Дэн Абрамов (Dan Abramov)_. При этом обязательно проверьте уже существующий перевод имени в [словаре имён «Веб-стандартов»](https://github.com/web-standards-ru/dictionary/blob/master/names.md)
+- Не переводите наименования компаний (Facebook, Airbnb), библиотек (Jest, Enzyme) и т.д.
+- Не переводите аббревиатуры (API, DOM, HOC, UI).
+- Исключайте отсылки на пол читателя (см. секцию 3 на [этой странице](http://www.un.org/ru/gender-inclusive-language/guidelines.shtml))
+- Названия статей и заголовки пишутся с одной заглавной буквы («Компоненты и пропсы», не «Компоненты и Пропсы»).
+
+### Слово живое и мёртвое
+
+Прежде чем переводить, почитайте пару страниц из «Слова живого и мёртвого» Норы Галь. Хотя бы эти две:
+
+* [Берегись канцелярита!](http://www.vavilon.ru/noragal/slovo2.html)
+* [Словесная алгебра](http://www.vavilon.ru/noragal/slovo4.html)
+
+**По мере возможности, избегайте отглагольных существительных!**
+
+* **Деревянно:** *для открытия*
+* **Живо:** *чтобы открыть*
+
+**Также избегайте пассивного залога:**
+
+* **Деревянно:** *будет рассказано*
+* **Живо:** *мы узнаем*
+
+**Предпочитайте простые слова (за исключением терминологии ниже):**
+
+* **Деревянно:** *демонстрирует*
+* **Живо:** *показывает*
+
+Чтобы избежать кальки, можно брать смысл предложения, а потом перефразировать так, как объясняли бы старшему коллеге. Если предложение звучит нелепо вслух, то его надо переписать. Например:
+
+**Оригинал:** *React has been designed from the start for gradual adoption, and you can use as little or as much React as you need.*
+
+**Мёртвая калька:** *React был спроектирован с самого начала для постепенного внедрения, и вы можете использовать столько React, сколько вам нужно.*
+
+**Нормальный перевод:** *Чтобы внедрить React, не надо ничего переписывать. Его можно использовать как для маленькой кнопки, так и для целого приложения.*
+
+Небольшие вольности в переводе допускаются, но только если они помогают передать смысл. Перевод не должен быть ни деревянным, ни фамильярным. Истина где-то посередине.
+
+## Универсальное руководство по стилю
+
+Описанные ниже правила пришли [из репозитория](https://github.com/reactjs/reactjs.org-translation/blob/master/style-guide.md), предписывающего стиль общий для **всех** языков, на которые переводится документация.
+
+### Идентификаторы заголовков
+
+Каждый заголовок имеет явный идентификатор:
+
+```md
+## Try React {#try-react}
+```
+
+**НЕ** переводите такие идентификаторы! Они используются для навигации. Изменение идентификатора неизбежно приведёт к поломке, если на документ ссылкаются извне, например так:
+
+```md
+Прочтите [главу для начинающих](/getting-started#try-react), чтобы узнать больше.
+```
+
+✅ Можно:
+
+```md
+## Попробуйте React {#try-react}
+```
+
+❌ НЕЛЬЗЯ:
+
+```md
+## Попробуйте React {#попробуйте-react}
+```
+
+Это сломает ссылку, приведённую в примере выше.
+
+### Текст в блоках кода
+
+Не переводите текст в блоках кода, кроме комментариев. А вот комментарии и текст в строках следует переводить, если они не относятся к коду.
+
+Пример:
+```js
+// Example
+const element = <h1>Hello, world</h1>;
+ReactDOM.render(element, document.getElementById('root'));
+```
+
+✅ МОЖНО:
+
+```js
+// Пример
+const element = <h1>Hello, world</h1>;
+ReactDOM.render(element, document.getElementById('root'));
+```
+
+✅ ТОЖЕ МОЖНО:
+
+```js
+// Пример
+const element = <h1>Здравствуй, мир!</h1>;
+ReactDOM.render(element, document.getElementById('root'));
+```
+
+❌ НЕЛЬЗЯ:
+
+```js
+// Пример
+const element = <h1>Здравствуй, мир!</h1>;
+// "root" ссылается на идентификатор элемента.
+// Не переводите его!
+ReactDOM.render(element, document.getElementById('корень'));
+```
+
+❌ СОВСЕМ НЕЛЬЗЯ:
+
+```js
+// Пример
+пост элемент = <з1>Здравствуй, мир!</з1>;
+РеактДОМ.отрендери(элемент, документ.получиЭлементПоАйди('корень'));
+```
+
+### Внешние ссылки
+
+Если внешняя ссылка ведёт к статье на [MDN] или [Wikipedia], и там существует статья на русском языке, исправьте ссылку, чтобы она указывала на русский вариант, даже если он неполный или требует улучшения.
+
+[MDN]: https://developer.mozilla.org/en-US/
+[Wikipedia]: https://en.wikipedia.org/wiki/Main_Page
+
+Пример:
+
+```md
+React elements are [immutable](https://en.wikipedia.org/wiki/Immutable_object).
+```
+
+✅ OK:
+
+```md
+Элементы React [иммутабельны](https://ru.wikipedia.org/wiki/%D0%9D%D0%B5%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D1%8F%D0%B5%D0%BC%D1%8B%D0%B9_%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82).
+```
+
+Для ссылок, у которых нету языковых эквивалентов (Stack Overflow, видео на YouTube, и т. д.), просто оставьте оригинальный вариант как есть.
+
+## Соглашение по переводу (глоссарий)
+
+**Пожалуйста, поддерживайте глоссарий в алфавитном порядке.**
+
+| Оригинальный термин | Перевод |
+| ------------------ | ---------- |
+| API reference | справочник API |
+| array | массив |
+| arrow function | стрелочная функция |
+| attribute | атрибут |
+| batch | группа обновлений |
+| batching | группировка |
+| bind | привязка |
+| bug | баг, дефект |
+| bundler | бандлер |
+| cache | кеш |
+| callback | колбэк |
+| camelCase | *camelCase* |
+| child | дочерний |
+| child component | дочерний компонент |
+| class component | классовый компонент |
+| cleanup | сброс (*напр., сбрасываемый эффект, сбросить эффект, сбрасывающая функция*) |
+| code splitting | разделение кода |
+| codemod | codemod-скрипт |
+| commit | фиксация |
+| concurrent mode | конкурентный режим |
+| context | контекст |
+| (un)controlled component | (не)управляемый компонент |
+| cross-cutting concerns | cквозная функциональность |
+| custom | пользовательский (*напр., пользовательские хуки*) |
+| debugging | отладка |
+| destructuring | деструктуризация |
+| development | разработка |
+| development mode | режим разработки |
+| developer tools | инструменты разработки |
+| display name | отображаемое имя |
+| DOM container | DOM-контейнер |
+| effect | эффект |
+| error | ошибка |
+| error boundary | предохранитель |
+| escape hatch | лазейка (*напр., императивные лазейки*) |
+| fallback | запасной |
+| feature | возможность (*менее предпочтительный синоним: функциональность*) |
+| folder | папка |
+| framework | фреймворк |
+| function component | функциональный компонент |
+| helper | вспомогательный(ая); *напр., helper function — вспомогательная функция* |
+| Higher-Order Component(s) | Компонент(ы) высшего порядка |
+| hook | хук *(с маленькой буквы)* *(напр., хук эффекта, хук контекста)* |
+| incapsulation | инкапсуляция |
+| incapsulated | инкапсулированный |
+| key | ключ |
+| lazy initialization | ленивая инициализация |
+| library | библиотека |
+| lifecycle | жизненный цикл |
+| lifecycle method | метод жизненного цикла |
+| lifting state up | подъём состояния, поднимать состояние |
+| local state | внутреннее состояние |
+| lowercase | нижний регистр |
+| mixin | примесь |
+| mock | фиктивный |
+| (im)mutable | (им)мутабельный |
+| (im)mutability | (им)мутабельность |
+| (un)mount | (раз)монтирование |
+| mutate | мутировать |
+| native | нативный |
+| Note | Примечание |
+| online | онлайн |
+| online playground | онлайн-песочница |
+| paint | отрисовка, перерисовка |
+| persistent | персистентность, персистентный |
+| phase | этап (*напр., этап рендеринга, этап фиксации*) |
+| prop | проп *(ед. ч.)* |
+| props | пропсы *(мн. ч.)* |
+| production | продакшен |
+| production mode | продакшен-режим |
+| profiling | профилирование |
+| Profiler | Profiler *(если имеется в виду компонент Profiler)*; профилировщик *(если имеется в виду инструмент для профилирования)*
+| React | React |
+| React element | React-элемент, элемент React |
+| reconciliation | согласование |
+| reducer | редюсер |
+| ref | реф *(ед. ч.)* |
+| refs | рефы *(мн. ч.)* |
+| ref forwarding | перенаправление рефа |
+| render(ing) | рендер, рендерить, отрендерить |
+| renderer | рендерер (*напр., поверхностный рендерер*) |
+| re-render(ing) | (по контексту) рендер, повторный рендер, последующий рендер, отрендерить снова |
+| render prop | рендер-проп *(ед. ч.)* |
+| render props | рендер-пропсы *(мн. ч.)* |
+| reuse | повторное использование |
+| (previous/next) section | (предыдущая/следующая) глава *(только в разделе Основные понятия)* |
+| Set of interactions | Множество «взаимодействий»
+| shallow | поверхностное (сравнение, равенство), поверхностный (рендеринг) |
+| side effect | побочный эффект |
+| snapshot | снимок |
+| state | состояние |
+| stateful component | компонент с состоянием |
+| stateless component | компонент без состояния |
+| suspense | задержка |
+| tag | тег |
+| template literals | шаблонные строки |
+| Tip | Совет |
+| TLDR | Вкратце |
+| Try it on CodePen | Посмотреть на CodePen |
+| tutorial | введение |
+| unidirectional data flow | однонаправленный поток данных |
+| UI | UI |
+| update | обновление |
+| user interface | интерфейс (добавляйте «пользовательский» только если по контексту непонятно) |
+| Warning | Предупреждение |
+```
 
 February 14, 2025 by [Matt Carroll](https://twitter.com/mattcarrollcode) and [Ricky Hanlon](https://bsky.app/profile/ricky.fm)
 
@@ -11,85 +824,86 @@ February 14, 2025 by [Matt Carroll](https://twitter.com/mattcarrollcode) and [Ri
 
 <Intro>
 
-Today, we’re deprecating [Create React App](https://create-react-app.dev/) for new apps, and encouraging existing apps to migrate to a [framework](#how-to-migrate-to-a-framework), or to [migrate to a build tool](#how-to-migrate-to-a-build-tool) like Vite, Parcel, or RSBuild. 
+Сегодня мы объявляем об **устаревании** [Create React App](https://create-react-app.dev/) для новых приложений и рекомендуем существующим приложениям перейти на [фреймворк](#how-to-migrate-to-a-framework) или на [инструмент сборки](#how-to-migrate-to-a-build-tool), такой как Vite, Parcel или RSBuild.
 
-We’re also providing docs for when a framework isn’t a good fit for your project, you want to build your own framework, or you just want to learn how React works by [building a React app from scratch](/learn/build-a-react-app-from-scratch).
+Мы также предоставляем документацию для тех случаев, когда фреймворк не подходит для вашего проекта, вы хотите создать свой собственный фреймворк или просто хотите узнать, как работает React, [создав приложение React с нуля](/learn/build-a-react-app-from-scratch).
 
 </Intro>
 
 -----
 
-When we released Create React App in 2016, there was no clear way to build a new React app.
+Когда мы выпустили Create React App в 2016 году, не было четкого способа создать новое приложение React.
 
-To create a React app, you had to install a bunch of tools and wire them up together yourself to support basic features like JSX, linting, and hot reloading. This was very tricky to do correctly, so the [community](https://github.com/react-boilerplate/react-boilerplate) [created](https://github.com/kriasoft/react-starter-kit) [boilerplates](https://github.com/petehunt/react-boilerplate) for [common](https://github.com/gaearon/react-hot-boilerplate) [setups](https://github.com/erikras/react-redux-universal-hot-example). However, boilerplates were difficult to update and fragmentation made it difficult for React to release new features.
+Чтобы создать приложение React, вам нужно было установить кучу инструментов и связать их вместе, чтобы поддерживать основные функции, такие как JSX, линтинг и горячая перезагрузка. Это было очень сложно сделать правильно, поэтому [сообщество](https://github.com/react-boilerplate/react-boilerplate) [создало](https://github.com/kriasoft/react-starter-kit) [шаблоны](https://github.com/petehunt/react-boilerplate) для [распространенных](https://github.com/gaearon/react-hot-boilerplate) [настроек](https://github.com/erikras/react-redux-universal-hot-example). Однако шаблоны было сложно обновлять, а фрагментация затрудняла выпуск новых функций React.
 
-Create React App solved these problems by combining several tools into a single recommended configuration. This allowed apps a simple way to upgrade to new tooling features, and allowed the React team to deploy non-trivial tooling changes (Fast Refresh support, React Hooks lint rules) to the broadest possible audience.
+Create React App решил эти проблемы, объединив несколько инструментов в единую рекомендуемую конфигурацию. Это позволило приложениям простым способом обновляться до новых функций инструментов и позволило команде React развертывать нетривиальные изменения инструментов (поддержка Fast Refresh, правила линтинга React Hooks) для максимально широкой аудитории.
 
-This model became so popular that there's an entire category of tools working this way today.
+Эта модель стала настолько популярной, что сегодня существует целая категория инструментов, работающих таким образом.
 
-## Deprecating Create React App {/*deprecating-create-react-app*/}
+## Устаревание Create React App {/*deprecating-create-react-app*/}
 
-Although Create React App makes it easy to get started, [there are several limitations](#limitations-of-build-tools) that make it difficult to build high performant production apps. In principle, we could solve these problems by essentially evolving it into a [framework](#why-we-recommend-frameworks).
+Хотя Create React App упрощает начало работы, [существует несколько ограничений](#limitations-of-build-tools), которые затрудняют создание высокопроизводительных рабочих приложений. В принципе, мы могли бы решить эти проблемы, по сути, превратив его в [фреймворк](#why-we-recommend-frameworks).
 
-However, since Create React App currently has no active maintainers, and there are many existing frameworks that solve these problems already, we’ve decided to deprecate Create React App.
+Однако, поскольку Create React App в настоящее время не имеет активных сопровождающих, и существует много существующих фреймворков, которые уже решают эти проблемы, мы решили **устареть** Create React App.
 
-Starting today, if you install a new app, you will see a deprecation warning:
+Начиная с сегодняшнего дня, при установке нового приложения вы увидите предупреждение об **устаревании**:
 
 <ConsoleBlockMulti>
 <ConsoleLogLine level="error">
 
-create-react-app is deprecated.
+create-react-app **устарел**.
 {'\n\n'}
-You can find a list of up-to-date React frameworks on react.dev
-For more info see: react.dev/link/cra
+Вы можете найти список актуальных фреймворков React на react.dev
+Более подробную информацию см. по адресу: react.dev/link/cra
 {'\n\n'}
-This error message will only be shown once per install.
+Это сообщение об ошибке будет отображаться только один раз при каждой установке.
 
 </ConsoleLogLine>
 </ConsoleBlockMulti>
 
-We've also added a deprecation notice to the Create React App [website](https://create-react-app.dev/) and GitHub [repo](https://github.com/facebook/create-react-app). Create React App will continue working in maintenance mode, and we've published a new version of Create React App to work with React 19.
+Мы также добавили уведомление об **устаревании** на [веб-сайт](https://create-react-app.dev/) и в [репозиторий](https://github.com/facebook/create-react-app) Create React App на GitHub. Create React App продолжит работу в режиме обслуживания, и мы опубликовали новую версию Create React App для работы с React 19.
 
-## How to Migrate to a Framework {/*how-to-migrate-to-a-framework*/}
-We recommend [creating new React apps](/learn/creating-a-react-app) with a framework. All the frameworks we recommend support client-side rendering ([CSR](https://developer.mozilla.org/en-US/docs/Glossary/CSR)) and single-page apps ([SPA](https://developer.mozilla.org/en-US/docs/Glossary/SPA)), and can be deployed to a CDN or static hosting service without a server.
+## Как перейти на фреймворк {/*how-to-migrate-to-a-framework*/}
 
-For existing apps, these guides will help you migrate to a client-only SPA:
+Мы рекомендуем [создавать новые приложения React](/learn/creating-a-react-app) с помощью фреймворка. Все рекомендуемые нами фреймворки поддерживают рендеринг на стороне клиента ([CSR](https://developer.mozilla.org/ru/docs/Glossary/CSR)) и одностраничные приложения ([SPA](https://developer.mozilla.org/ru/docs/Glossary/SPA)) и могут быть развернуты в CDN или службе статического хостинга без сервера.
 
-* [Next.js’ Create React App migration guide](https://nextjs.org/docs/app/building-your-application/upgrading/from-create-react-app)
-* [React Router’s framework adoption guide](https://reactrouter.com/upgrading/component-routes).
-* [Expo webpack to Expo Router migration guide](https://docs.expo.dev/router/migrate/from-expo-webpack/)
+Для существующих приложений эти руководства помогут вам перейти на SPA только для клиента:
 
-## How to Migrate to a Build Tool {/*how-to-migrate-to-a-build-tool*/}
+* [Руководство по миграции Next.js Create React App](https://nextjs.org/docs/app/building-your-application/upgrading/from-create-react-app)
+* [Руководство по внедрению фреймворка React Router](https://reactrouter.com/upgrading/component-routes).
+* [Руководство по миграции Expo webpack в Expo Router](https://docs.expo.dev/router/migrate/from-expo-webpack/)
 
-If your app has unusual constraints, or you prefer to solve these problems by building your own framework, or you just want to learn how react works from scratch, you can roll your own custom setup with React using Vite, Parcel or Rsbuild.
+## Как перейти на инструмент сборки {/*how-to-migrate-to-a-build-tool*/}
 
-For existing apps, these guides will help you migrate to a build tool:
+Если у вашего приложения есть необычные ограничения или вы предпочитаете решать эти проблемы, создавая свой собственный фреймворк, или просто хотите узнать, как работает React с нуля, вы можете создать свою собственную пользовательскую настройку с помощью React, используя Vite, Parcel или Rsbuild.
 
-* [Vite Create React App migration guide](https://www.robinwieruch.de/vite-create-react-app/)
-* [Parcel Create React App migration guide](https://parceljs.org/migration/cra/)
-* [Rsbuild Create React App migration guide](https://rsbuild.dev/guide/migration/cra)
+Для существующих приложений эти руководства помогут вам перейти на инструмент сборки:
 
-To help get started with Vite, Parcel or Rsbuild, we've added new docs for [Building a React App from Scratch](/learn/build-a-react-app-from-scratch).
+* [Руководство по миграции Vite Create React App](https://www.robinwieruch.de/vite-create-react-app/)
+* [Руководство по миграции Parcel Create React App](https://parceljs.org/migration/cra/)
+* [Руководство по миграции Rsbuild Create React App](https://rsbuild.dev/guide/migration/cra)
+
+Чтобы помочь вам начать работу с Vite, Parcel или Rsbuild, мы добавили новую документацию по [созданию приложения React с нуля](/learn/build-a-react-app-from-scratch).
 
 <DeepDive>
 
-#### Do I need a framework? {/*do-i-need-a-framework*/}
+#### Нужен ли мне фреймворк? {/*do-i-need-a-framework*/}
 
-Most apps would benefit from a framework, but there are valid cases to build a React app from scratch. A good rule of thumb is if your app needs routing, you would probably benefit from a framework. 
+Большинство приложений выиграют от использования фреймворка, но есть веские причины для создания приложения React с нуля. Хорошее эмпирическое правило: если вашему приложению требуется маршрутизация, вам, вероятно, будет полезен фреймворк.
 
-Just like Svelte has Sveltekit, Vue has Nuxt, and Solid has SolidStart, [React recommends using a framework](#why-we-recommend-frameworks) that fully integrates routing into features like data-fetching and code-splitting out of the box. This avoids the pain of needing to write your own complex configurations and essentially build a framework yourself.
+Точно так же, как у Svelte есть Sveltekit, у Vue есть Nuxt, а у Solid есть SolidStart, [React рекомендует использовать фреймворк](#why-we-recommend-frameworks), который полностью интегрирует маршрутизацию в такие функции, как получение данных и разделение кода, прямо из коробки. Это позволяет избежать необходимости писать собственные сложные конфигурации и, по сути, создавать фреймворк самостоятельно.
 
-However, you can always [build a React app from scratch](/learn/build-a-react-app-from-scratch) using a build tool like Vite, Parcel, or Rsbuild.
+Однако вы всегда можете [создать приложение React с нуля](/learn/build-a-react-app-from-scratch), используя такой инструмент сборки, как Vite, Parcel или Rsbuild.
 
 </DeepDive>
 
-Continue reading to learn more about the [limitations of build tools](#limitations-of-build-tools) and [why we recommend frameworks](#why-we-recommend-frameworks).
+Продолжайте читать, чтобы узнать больше об [ограничениях инструментов сборки](#limitations-of-build-tools) и о том, [почему мы рекомендуем фреймворки](#why-we-recommend-frameworks).
 
-## Limitations of Build Tools {/*limitations-of-build-tools*/}
+## Ограничения инструментов сборки {/*limitations-of-build-tools*/}
 
-Create React App and build tools like it make it easy to get started building a React app. After running `npx create-react-app my-app`, you get a fully configured React app with a development server, linting, and a production build.
+Create React App и подобные инструменты сборки упрощают начало работы над созданием приложения React. После запуска `npx create-react-app my-app` вы получаете полностью настроенное приложение React с сервером разработки, линтингом и рабочей сборкой.
 
-For example, if you're building an internal admin tool, you can start with a landing page:
+Например, если вы создаете внутренний инструмент администрирования, вы можете начать с целевой страницы:
 
 ```js
 export default function App() {
@@ -101,13 +915,13 @@ export default function App() {
 }
 ```
 
-This allows you to immediately start coding in React with features like JSX, default linting rules, and a bundler to run in both development and production. However, this setup is missing the tools you need to build a real production app.
+Это позволяет вам сразу же начать кодировать на React с такими функциями, как JSX, правила линтинга по умолчанию и бандлер для запуска как в разработке, так и в продакшене. Однако в этой настройке отсутствуют инструменты, необходимые для создания реального рабочего приложения.
 
-Most production apps need solutions to problems like routing, data fetching, and code splitting.
+Большинству рабочих приложений нужны решения для таких проблем, как маршрутизация, получение данных и разделение кода.
 
-### Routing {/*routing*/}
+### Маршрутизация {/*routing*/}
 
-Create React App does not include a specific routing solution. If you're just getting started, one option is to use `useState` to switch between routes. But doing this means that you can't share links to your app - every link would go to the same page - and structuring your app becomes difficult over time:
+Create React App не включает в себя конкретное решение для маршрутизации. Если вы только начинаете, один из вариантов — использовать `useState` для переключения между маршрутами. Но это означает, что вы не можете делиться ссылками на свое приложение — каждая ссылка будет вести на одну и ту же страницу — и структурировать свое приложение со временем становится сложно:
 
 ```js
 import {useState} from 'react';
@@ -116,7 +930,7 @@ import Home from './Home';
 import Dashboard from './Dashboard';
 
 export default function App() {
-  // ❌ Routing in state does not create URLs
+  // ❌ Маршрутизация в состоянии не создает URL-адреса
   const [route, setRoute] = useState('home');
   return (
     <div>
@@ -127,7 +941,7 @@ export default function App() {
 }
 ```
 
-This is why most apps that use Create React App solve add routing with a routing library like [React Router](https://reactrouter.com/) or [Tanstack Router](https://tanstack.com/router/latest). With a routing library, you can add additional routes to the app, which provides opinions on the structure of your app, and allows you to start sharing links to routes. For example, with React Router you can define routes:
+Вот почему большинство приложений, использующих Create React App, решают добавить маршрутизацию с помощью такой библиотеки маршрутизации, как [React Router](https://reactrouter.com/) или [Tanstack Router](https://tanstack.com/router/latest). С помощью библиотеки маршрутизации вы можете добавить дополнительные маршруты в приложение, что дает представление о структуре вашего приложения и позволяет вам начать делиться ссылками на маршруты. Например, с помощью React Router вы можете определить маршруты:
 
 ```js
 import {RouterProvider, createBrowserRouter} from 'react-router';
@@ -135,7 +949,7 @@ import {RouterProvider, createBrowserRouter} from 'react-router';
 import Home from './Home';
 import Dashboard from './Dashboard';
 
-// ✅ Each route has it's own URL
+// ✅ У каждого маршрута свой URL-адрес
 const router = createBrowserRouter([
   {path: '/', element: <Home />},
   {path: '/dashboard', element: <Dashboard />}
@@ -148,21 +962,21 @@ export default function App() {
 }
 ```
 
-With this change, you can share a link to `/dashboard` and the app will navigate to the dashboard page . Once you have a routing library, you can add additional features like nested routes, route guards, and route transitions, which are difficult to implement without a routing library.
+С этим изменением вы можете поделиться ссылкой на `/dashboard`, и приложение перейдет на страницу панели управления. После того, как у вас есть библиотека маршрутизации, вы можете добавить дополнительные функции, такие как вложенные маршруты, охранники маршрутов и переходы между маршрутами, которые сложно реализовать без библиотеки маршрутизации.
 
-There's a tradeoff being made here: the routing library adds complexity to the app, but it also adds features that are difficult to implement without it.
+Здесь делается компромисс: библиотека маршрутизации добавляет сложность в приложение, но также добавляет функции, которые сложно реализовать без нее.
 
-### Data Fetching {/*data-fetching*/}
+### Получение данных {/*data-fetching*/}
 
-Another common problem in Create React App is data fetching. Create React App does not include a specific data fetching solution. If you're just getting started, a common option is to use `fetch` in an effect to load data.
+Еще одна распространенная проблема в Create React App — получение данных. Create React App не включает в себя конкретное решение для получения данных. Если вы только начинаете, распространенным вариантом является использование `fetch` в эффекте для загрузки данных.
 
-But doing this means that the data is fetched after the component renders, which can cause network waterfalls. Network waterfalls are caused by fetching data when your app renders instead of in parallel while the code is downloading:
+Но это означает, что данные извлекаются после рендеринга компонента, что может вызвать сетевые водопады. Сетевые водопады вызваны извлечением данных при рендеринге вашего приложения, а не параллельно во время загрузки кода:
 
 ```js
 export default function Dashboard() {
   const [data, setData] = useState(null);
 
-  // ❌ Fetching data in a component causes network waterfalls
+  // ❌ Получение данных в компоненте вызывает сетевые водопады
   useEffect(() => {
     fetch('/api/data')
       .then(response => response.json())
@@ -177,9 +991,9 @@ export default function Dashboard() {
 }
 ```
 
-Fetching in an effect means the user has to wait longer to see the content, even though the data could have been fetched earlier. To solve this, you can use a data fetching library like [React Query](https://react-query.tanstack.com/), [SWR](https://swr.vercel.app/), [Apollo](https://www.apollographql.com/docs/react), or [Relay](https://relay.dev/) which provide options to prefetch data so the request is started before the component renders.
+Получение данных в эффекте означает, что пользователю придется дольше ждать, чтобы увидеть контент, хотя данные можно было бы получить раньше. Чтобы решить эту проблему, вы можете использовать библиотеку получения данных, такую как [React Query](https://react-query.tanstack.com/), [SWR](https://swr.vercel.app/), [Apollo](https://www.apollographql.com/docs/react) или [Relay](https://relay.dev/), которые предоставляют возможности предварительной загрузки данных, чтобы запрос начинался до рендеринга компонента.
 
-These libraries work best when integrated with your routing "loader" pattern to specify data dependencies at the route level, which allows the router to optimize your data fetches:
+Эти библиотеки лучше всего работают при интеграции с вашим шаблоном «загрузчика» маршрутизации для указания зависимостей данных на уровне маршрута, что позволяет маршрутизатору оптимизировать получение ваших данных:
 
 ```js
 export async function loader() {
@@ -188,7 +1002,7 @@ export async function loader() {
   return data;
 }
 
-// ✅ Fetching data in parallel while the code is downloading
+// ✅ Получение данных параллельно во время загрузки кода
 export default function Dashboard({loaderData}) {
   return (
     <div>
@@ -198,21 +1012,21 @@ export default function Dashboard({loaderData}) {
 }
 ```
 
-On initial load, the router can fetch the data immediately before the route is rendered. As the user navigates around the app, the router is able to fetch both the data and the route at the same time, parallelizing the fetches. This reduces the time it takes to see the content on the screen, and can improve the user experience.
+При первоначальной загрузке маршрутизатор может получить данные сразу перед рендерингом маршрута. По мере того, как пользователь перемещается по приложению, маршрутизатор может получать как данные, так и маршрут одновременно, параллелизуя получение. Это сокращает время, необходимое для отображения контента на экране, и может улучшить взаимодействие с пользователем.
 
-However, this requires correctly configuring the loaders in your app and trades off complexity for performance.
+Однако это требует правильной настройки загрузчиков в вашем приложении и компромисса между сложностью и производительностью.
 
-### Code Splitting {/*code-splitting*/}
+### Разделение кода {/*code-splitting*/}
 
-Another common problem in Create React App is [code splitting](https://www.patterns.dev/vanilla/bundle-splitting). Create React App does not include a specific code splitting solution. If you're just getting started, you might not consider code splitting at all.
+Еще одна распространенная проблема в Create React App — [разделение кода](https://www.patterns.dev/vanilla/bundle-splitting). Create React App не включает в себя конкретное решение для разделения кода. Если вы только начинаете, вы можете вообще не рассматривать разделение кода.
 
-This means your app is shipped as a single bundle:
+Это означает, что ваше приложение поставляется в виде одного пакета:
 
 ```txt
 - bundle.js    75kb
 ```
 
-But for ideal performance, you should "split" your code into separate bundles so the user only needs to download what they need. This decreases the time the user needs to wait to load your app, by only downloading the code they need to see the page they are on.
+Но для идеальной производительности вам следует «разделить» свой код на отдельные пакеты, чтобы пользователю нужно было загружать только то, что ему нужно. Это уменьшает время, которое пользователю нужно ждать для загрузки вашего приложения, загружая только код, необходимый для просмотра страницы, на которой он находится.
 
 ```txt
 - core.js      25kb
@@ -220,101 +1034,101 @@ But for ideal performance, you should "split" your code into separate bundles so
 - dashboard.js 25kb
 ```
 
-One way to do code-splitting is with `React.lazy`. However, this means that the code is not fetched until the component renders, which can cause network waterfalls. A more optimal solution is to use a router feature that fetches the code in parallel while the code is downloading. For example, React Router provides a `lazy` option to specify that a route should be code split and optimize when it is loaded:
+Один из способов разделения кода — с помощью `React.lazy`. Однако это означает, что код не извлекается до тех пор, пока компонент не будет отрисован, что может вызвать сетевые водопады. Более оптимальное решение — использовать функцию маршрутизатора, которая извлекает код параллельно во время загрузки кода. Например, React Router предоставляет опцию `lazy`, чтобы указать, что маршрут должен быть разделен на код и оптимизировать его загрузку:
 
 ```js
 import Home from './Home';
 import Dashboard from './Dashboard';
 
-// ✅ Routes are downloaded before rendering
+// ✅ Маршруты загружаются перед рендерингом
 const router = createBrowserRouter([
   {path: '/', lazy: () => import('./Home')},
   {path: '/dashboard', lazy: () => import('Dashboard')}
 ]);
 ```
 
-Optimized code-splitting is tricky to get right, and it's easy to make mistakes that can cause the user to download more code than they need. It works best when integrated with your router and data loading solutions to maximize caching, parallelize fetches, and support ["import on interaction"](https://www.patterns.dev/vanilla/import-on-interaction) patterns.
+Оптимизированное разделение кода сложно реализовать правильно, и легко допустить ошибки, которые могут привести к тому, что пользователь загрузит больше кода, чем ему нужно. Оно лучше всего работает при интеграции с вашим маршрутизатором и решениями для загрузки данных, чтобы максимизировать кэширование, параллелизовать получение и поддерживать шаблоны ["импорта по взаимодействию"](https://www.patterns.dev/vanilla/import-on-interaction).
 
-### And more... {/*and-more*/}
+### И многое другое... {/*and-more*/}
 
-These are just a few examples of the limitations of Create React App.
+Это всего лишь несколько примеров ограничений Create React App.
 
-Once you've integrated routing, data-fetching, and code splitting, you now also need to consider pending states, navigation interruptions, error messages to the user, and revalidation of the data. There are entire categories of problems that users need to solve like:
+После того, как вы интегрировали маршрутизацию, получение данных и разделение кода, вам также необходимо учитывать состояния ожидания, прерывания навигации, сообщения об ошибках для пользователя и повторную проверку данных. Существуют целые категории проблем, которые пользователям необходимо решать, например:
 
 <div style={{display: 'flex', width: '100%', justifyContent: 'space-around'}}>
   <ul>
-    <li>Accessibility</li>
-    <li>Asset loading</li>
-    <li>Authentication</li>
-    <li>Caching</li>
+    <li>Доступность</li>
+    <li>Загрузка ресурсов</li>
+    <li>Аутентификация</li>
+    <li>Кэширование</li>
   </ul>
   <ul>
-    <li>Error handling</li>
-    <li>Mutating data</li>
-    <li>Navigations</li>
-    <li>Optimistic updates</li>
+    <li>Обработка ошибок</li>
+    <li>Изменение данных</li>
+    <li>Навигация</li>
+    <li>Оптимистичные обновления</li>
   </ul>
   <ul>
-    <li>Progressive enhancement</li>
-    <li>Server-side rendering</li>
-    <li>Static site generation</li>
-    <li>Streaming</li>
+    <li>Постепенное улучшение</li>
+    <li>Рендеринг на стороне сервера</li>
+    <li>Генерация статических сайтов</li>
+    <li>Потоковая передача</li>
   </ul>
 </div>
 
-All of these work together to create the most optimal [loading sequence](https://www.patterns.dev/vanilla/loading-sequence).
+Все это работает вместе, чтобы создать наиболее оптимальную [последовательность загрузки](https://www.patterns.dev/vanilla/loading-sequence).
 
-Solving each of these problems individually in Create React App can be difficult as each problem is interconnected with the others and can require deep expertise in problem areas users may not be familiar with. In order to solve these problems, users end up building their own bespoke solutions on top of Create React App, which was the problem Create React App originally tried to solve.
+Решение каждой из этих проблем по отдельности в Create React App может быть сложным, поскольку каждая проблема взаимосвязана с другими и может потребовать глубоких знаний в проблемных областях, с которыми пользователи могут быть не знакомы. Чтобы решить эти проблемы, пользователи в конечном итоге создают свои собственные решения на основе Create React App, что и было проблемой, которую Create React App изначально пытался решить.
+```
 
-## Why we Recommend Frameworks {/*why-we-recommend-frameworks*/}
+## Почему мы рекомендуем фреймворки {/*why-we-recommend-frameworks*/}
 
-Although you could solve all these pieces yourself in a build tool like Create React App, Vite, or Parcel, it is hard to do well. Just like when Create React App itself integrated several build tools together, you need a tool to integrate all of these features together to provide the best experience to users.
+Хотя вы могли бы решить все эти задачи самостоятельно в инструменте сборки, таком как Create React App, Vite или Parcel, это сложно сделать хорошо. Точно так же, как Create React App интегрировал несколько инструментов сборки вместе, вам нужен инструмент для интеграции всех этих функций, чтобы обеспечить наилучший опыт для пользователей.
 
-This category of tools that integrates build tools, rendering, routing, data fetching, and code splitting are known as "frameworks" -- or if you prefer to call React itself a framework, you might call them "metaframeworks".
+Эта категория инструментов, которая объединяет инструменты сборки, рендеринг, маршрутизацию, получение данных и разделение кода, известна как «фреймворки» — или, если вы предпочитаете называть сам React фреймворком, вы можете называть их «метафреймворками».
 
-Frameworks impose some opinions about structuring your app in order to provide a much better user experience, in the same way build tools impose some opinions to make tooling easier. This is why we started recommending frameworks like [Next.js](https://nextjs.org/), [React Router](https://reactrouter.com/), and [Expo](https://expo.dev/) for new projects.
+Фреймворки навязывают некоторые мнения о структурировании вашего приложения, чтобы обеспечить гораздо лучший пользовательский опыт, так же, как инструменты сборки навязывают некоторые мнения, чтобы упростить работу с инструментами. Вот почему мы начали рекомендовать фреймворки, такие как [Next.js](https://nextjs.org/), [React Router](https://reactrouter.com/) и [Expo](https://expo.dev/) для новых проектов.
 
-Frameworks provide the same getting started experience as Create React App, but also provide solutions to problems users need to solve anyway in real production apps.
+Фреймворки обеспечивают тот же опыт начала работы, что и Create React App, но также предоставляют решения проблем, которые пользователям все равно нужно решать в реальных рабочих приложениях.
 
 <DeepDive>
 
-#### Server rendering is optional {/*server-rendering-is-optional*/}
+#### Рендеринг на сервере — это опционально {/*server-rendering-is-optional*/}
 
-The frameworks we recommend all provide the option to create a [client-side rendered (CSR)](https://developer.mozilla.org/en-US/docs/Glossary/CSR) app.
+Фреймворки, которые мы рекомендуем, предоставляют возможность создания приложения с [рендерингом на стороне клиента (CSR)](https://developer.mozilla.org/ru/docs/Glossary/CSR).
 
-In some cases, CSR is the right choice for a page, but many times it's not. Even if most of your app is client-side, there are often individual pages that could benefit from server rendering features like [static-site generation (SSG)](https://developer.mozilla.org/en-US/docs/Glossary/SSG) or [server-side rendering (SSR)](https://developer.mozilla.org/en-US/docs/Glossary/SSR), for example a Terms of Service page, or documentation.
+В некоторых случаях CSR — правильный выбор для страницы, но во многих случаях это не так. Даже если большая часть вашего приложения находится на стороне клиента, часто есть отдельные страницы, которые могут выиграть от функций рендеринга на сервере, таких как [генерация статического сайта (SSG)](https://developer.mozilla.org/ru/docs/Glossary/SSG) или [рендеринг на стороне сервера (SSR)](https://developer.mozilla.org/ru/docs/Glossary/SSR), например, страница с условиями обслуживания или документация.
 
-Server rendering generally sends less JavaScript to the client, and a full HTML document which produces a faster [First Contentful Paint (FCP)](https://web.dev/articles/fcp) by reducing [Total Blocking Time (TBD)](https://web.dev/articles/tbt), which can also lower [Interaction to Next Paint (INP)](https://web.dev/articles/inp). This is why the [Chrome team has encouraged](https://web.dev/articles/rendering-on-the-web) developers to consider static or server-side render over a full client-side approach to achieve the best possible performance.
+Рендеринг на сервере обычно отправляет меньше JavaScript клиенту и полный HTML-документ, что обеспечивает более быструю [First Contentful Paint (FCP)](https://web.dev/articles/fcp), уменьшая [Total Blocking Time (TBD)](https://web.dev/articles/tbt), что также может снизить [Interaction to Next Paint (INP)](https://web.dev/articles/inp). Вот почему [команда Chrome рекомендовала](https://web.dev/articles/rendering-on-the-web) разработчикам рассмотреть возможность статического или серверного рендеринга вместо полного подхода на стороне клиента для достижения наилучшей производительности.
 
-There are tradeoffs to using a server, and it is not always the best option for every page. Generating pages on the server incurs additional cost and takes time to generate which can increase [Time to First Byte (TTFB)](https://web.dev/articles/ttfb). The best performing apps are able to pick the right rendering strategy on a per-page basis, based on the tradeoffs of each strategy.
+Использование сервера имеет свои компромиссы, и это не всегда лучший вариант для каждой страницы. Генерация страниц на сервере влечет за собой дополнительные затраты и требует времени на генерацию, что может увеличить [Time to First Byte (TTFB)](https://web.dev/articles/ttfb). Наиболее производительные приложения могут выбирать правильную стратегию рендеринга для каждой страницы, основываясь на компромиссах каждой стратегии.
 
-Frameworks provide the option to use a server on any page if you want to, but do not force you to use a server. This allows you to pick the right rendering strategy for each page in your app.
+Фреймворки предоставляют возможность использовать сервер на любой странице, если вы хотите, но не заставляют вас использовать сервер. Это позволяет вам выбирать правильную стратегию рендеринга для каждой страницы в вашем приложении.
 
-#### What About Server Components {/*server-components*/}
+#### Как насчет серверных компонентов {/*server-components*/}
 
-The frameworks we recommend also include support for React Server Components.
+Фреймворки, которые мы рекомендуем, также включают поддержку React Server Components.
 
-Server Components help solve these problems by moving routing and data fetching to the server, and allowing code splitting to be done for client components based on the data you render, instead of just the route rendered, and reducing the amount of JavaScript shipped for the best possible [loading sequence](https://www.patterns.dev/vanilla/loading-sequence).
+Серверные компоненты помогают решить эти проблемы, перемещая маршрутизацию и получение данных на сервер и позволяя выполнять разделение кода для клиентских компонентов на основе данных, которые вы рендерите, а не только на основе отрендеренного маршрута, и уменьшая объем JavaScript, отправляемого для наилучшей [последовательности загрузки](https://www.patterns.dev/vanilla/loading-sequence).
 
-Server Components do not require a server. They can be run at build time on your CI server to create a static-site generated app (SSG) app, at runtime on a web server for a server-side rendered (SSR) app.
+Серверные компоненты не требуют сервера. Они могут быть запущены во время сборки на вашем CI-сервере для создания приложения с генерацией статического сайта (SSG), во время выполнения на веб-сервере для приложения с рендерингом на стороне сервера (SSR).
 
-See [Introducing zero-bundle size React Server Components](/blog/2020/12/21/data-fetching-with-react-server-components) and [the docs](/reference/rsc/server-components) for more info.
+См. [Представляем React Server Components с нулевым размером пакета](/blog/2020/12/21/data-fetching-with-react-server-components) и [документацию](/reference/rsc/server-components) для получения дополнительной информации.
 
 </DeepDive>
 
 <Note>
 
-#### Server Rendering is not just for SEO {/*server-rendering-is-not-just-for-seo*/}
+#### Рендеринг на сервере — это не только для SEO {/*server-rendering-is-not-just-for-seo*/}
 
-A common misunderstanding is that server rendering is only for [SEO](https://developer.mozilla.org/en-US/docs/Glossary/SEO).
+Распространенное заблуждение заключается в том, что рендеринг на сервере предназначен только для [SEO](https://developer.mozilla.org/ru/docs/Glossary/SEO).
 
-While server rendering can improve SEO, it also improves performance by reducing the amount of JavaScript the user needs to download and parse before they can see the content on the screen.
+Хотя рендеринг на сервере может улучшить SEO, он также улучшает производительность, уменьшая объем JavaScript, который пользователю необходимо загрузить и обработать, прежде чем он сможет увидеть контент на экране.
 
-This is why the Chrome team [has encouraged](https://web.dev/articles/rendering-on-the-web) developers to consider static or server-side render over a full client-side approach to achieve the best possible performance.
+Вот почему команда Chrome [рекомендовала](https://web.dev/articles/rendering-on-the-web) разработчикам рассмотреть возможность статического или серверного рендеринга вместо полного подхода на стороне клиента для достижения наилучшей производительности.
 
 </Note>
 
 ---
 
-_Thank you to [Dan Abramov](https://bsky.app/profile/danabra.mov) for creating Create React App, and [Joe Haddad](https://github.com/Timer), [Ian Schmitz](https://github.com/ianschmitz), [Brody McKee](https://github.com/mrmckeb), and [many others](https://github.com/facebook/create-react-app/graphs/contributors) for maintaining Create React App over the years. Thank you to [Brooks Lybrand](https://bsky.app/profile/brookslybrand.bsky.social), [Dan Abramov](https://bsky.app/profile/danabra.mov), [Devon Govett](https://bsky.app/profile/devongovett.bsky.social), [Eli White](https://x.com/Eli_White), [Jack Herrington](https://bsky.app/profile/jherr.dev), [Joe Savona](https://x.com/en_JS), [Lauren Tan](https://bsky.app/profile/no.lol), [Lee Robinson](https://x.com/leeerob), [Mark Erikson](https://bsky.app/profile/acemarke.dev), [Ryan Florence](https://x.com/ryanflorence), [Sophie Alpert](https://bsky.app/profile/sophiebits.com), [Tanner Linsley](https://bsky.app/profile/tannerlinsley.com), and [Theo Browne](https://x.com/theo) for reviewing and providing feedback on this post._
-
+_Спасибо [Дэну Абрамову (Dan Abramov)](https://bsky.app/profile/danabra.mov) за создание Create React App, а также [Джо Хэддаду (Joe Haddad)](https://github.com/Timer), [Иэну Шмитцу (Ian Schmitz)](https://github.com/ianschmitz), [Броди Макки (Brody McKee)](https://github.com/mrmckeb) и [многим другим](https://github.com/facebook/create-react-app/graphs/contributors) за поддержку Create React App на протяжении многих лет. Спасибо [Бруксу Лайбранду (Brooks Lybrand)](https://bsky.app/profile/brookslybrand.bsky.social), [Дэну Абрамову (Dan Abramov)](https://bsky.app/profile/danabra.mov), [Девону Говетту (Devon Govett)](https://bsky.app/profile/devongovett.bsky.social), [Эли Уайту (Eli White)](https://x.com/Eli_White), [Джеку Херрингтону (Jack Herrington)](https://bsky.app/profile/jherr.dev), [Джо Савоне (Joe Savona)](https://x.com/en_JS), [Лорен Тан (Lauren Tan)](https://bsky.app/profile/no.lol), [Ли Робинсону (Lee Robinson)](https://x.com/leeerob), [Марку Эриксону (Mark Erikson)](https://bsky.app/profile/acemarke.dev), [Райану Флоренсу (Ryan Florence)](https://x.com/ryanflorence), [Софи Альперт (Sophie Alpert)](https://bsky.app/profile/sophiebits.com), [Таннеру Линсли (Tanner Linsley)](https://bsky.app/profile/tannerlinsley.com) и [Тео Брауну (Theo Browne)](https://x.com/theo) за рецензирование и предоставление отзывов по этому посту._
