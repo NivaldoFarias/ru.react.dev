@@ -1,15 +1,15 @@
 ---
-title: "<form>"
+title: "`<form>`"
 ---
-
+```
 <Intro>
 
-The [built-in browser `<form>` component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form) lets you create interactive controls for submitting information.
+[Встроенный компонент `<form>` браузера](https://developer.mozilla.org/ru/docs/Web/HTML/Element/form) позволяет создавать интерактивные элементы управления для отправки информации.
 
 ```js
 <form action={search}>
     <input name="query" />
-    <button type="submit">Search</button>
+    <button type="submit">Поиск</button>
 </form>
 ```
 
@@ -19,38 +19,38 @@ The [built-in browser `<form>` component](https://developer.mozilla.org/en-US/do
 
 ---
 
-## Reference {/*reference*/}
+## Справочник {/*reference*/}
 
 ### `<form>` {/*form*/}
 
-To create interactive controls for submitting information, render the [built-in browser `<form>` component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form).
+Чтобы создать интерактивные элементы управления для отправки информации, отрендерите [встроенный компонент `<form>` браузера](https://developer.mozilla.org/ru/docs/Web/HTML/Element/form).
 
 ```js
 <form action={search}>
     <input name="query" />
-    <button type="submit">Search</button>
+    <button type="submit">Поиск</button>
 </form>
 ```
 
-[See more examples below.](#usage)
+[См. больше примеров ниже.](#usage)
 
-#### Props {/*props*/}
+#### Пропсы {/*props*/}
 
-`<form>` supports all [common element props.](/reference/react-dom/components/common#props)
+`<form>` поддерживает все [общие пропсы элементов.](/reference/react-dom/components/common#props)
 
-[`action`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#action): a URL or function. When a URL is passed to `action` the form will behave like the HTML form component. When a function is passed to `action` the function will handle the form submission. The function passed to `action` may be async and will be called with a single argument containing the [form data](https://developer.mozilla.org/en-US/docs/Web/API/FormData) of the submitted form. The `action` prop can be overridden by a `formAction` attribute on a `<button>`, `<input type="submit">`, or `<input type="image">` component.
+[`action`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/form#action): URL или функция. Когда в `action` передаётся URL, форма будет вести себя как компонент HTML-формы. Когда в `action` передаётся функция, функция будет обрабатывать отправку формы. Функция, переданная в `action`, может быть асинхронной и будет вызвана с одним аргументом, содержащим [данные формы](https://developer.mozilla.org/ru/docs/Web/API/FormData) отправленной формы. Проп `action` может быть переопределён атрибутом `formAction` в компоненте `<button>`, `<input type="submit">` или `<input type="image">`.
 
-#### Caveats {/*caveats*/}
+#### Предостережения {/*caveats*/}
 
-* When a function is passed to `action` or `formAction` the HTTP method will be POST regardless of value of the `method` prop.
+* Когда в `action` или `formAction` передаётся функция, HTTP-метод будет POST, независимо от значения пропа `method`.
 
 ---
 
-## Usage {/*usage*/}
+## Использование {/*usage*/}
 
-### Handle form submission on the client {/*handle-form-submission-on-the-client*/}
+### Обработка отправки формы на клиенте {/*handle-form-submission-on-the-client*/}
 
-Pass a function to the `action` prop of form to run the function when the form is submitted. [`formData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) will be passed to the function as an argument so you can access the data submitted by the form. This differs from the conventional [HTML action](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#action), which only accepts URLs. After the `action` function succeeds, all uncontrolled field elements in the form are reset.
+Передайте функцию в проп `action` формы, чтобы запустить функцию при отправке формы. [`formData`](https://developer.mozilla.org/ru/docs/Web/API/FormData) будет передана в функцию в качестве аргумента, чтобы вы могли получить доступ к данным, отправленным формой. Это отличается от обычной [HTML-action](https://developer.mozilla.org/ru/docs/Web/HTML/Element/form#action), которая принимает только URL-адреса. После успешного выполнения функции `action` все неуправляемые элементы полей в форме сбрасываются.
 
 <Sandpack>
 
@@ -58,12 +58,12 @@ Pass a function to the `action` prop of form to run the function when the form i
 export default function Search() {
   function search(formData) {
     const query = formData.get("query");
-    alert(`You searched for '${query}'`);
+    alert(`Вы искали '${query}'`);
   }
   return (
     <form action={search}>
       <input name="query" />
-      <button type="submit">Search</button>
+      <button type="submit">Поиск</button>
     </form>
   );
 }
@@ -71,13 +71,13 @@ export default function Search() {
 
 </Sandpack>
 
-### Handle form submission with a Server Function {/*handle-form-submission-with-a-server-function*/}
+### Обработка отправки формы с помощью серверной функции {/*handle-form-submission-with-a-server-function*/}
 
-Render a `<form>` with an input and submit button. Pass a Server Function (a function marked with [`'use server'`](/reference/rsc/use-server)) to the `action` prop of form to run the function when the form is submitted.
+Отрендерите `<form>` с полем ввода и кнопкой отправки. Передайте серверную функцию (функцию, помеченную как [`'use server'`](/reference/rsc/use-server)) в проп `action` формы, чтобы запустить функцию при отправке формы.
 
-Passing a Server Function to `<form action>` allow users to submit forms without JavaScript enabled or before the code has loaded. This is beneficial to users who have a slow connection, device, or have JavaScript disabled and is similar to the way forms work when a URL is passed to the `action` prop.
+Передача серверной функции в `<form action>` позволяет пользователям отправлять формы без включённого JavaScript или до загрузки кода. Это полезно для пользователей с медленным подключением, устройством или отключённым JavaScript и аналогично тому, как работают формы, когда в проп `action` передаётся URL.
 
-You can use hidden form fields to provide data to the `<form>`'s action. The Server Function will be called with the hidden form field data as an instance of [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData).
+Вы можете использовать скрытые поля формы, чтобы предоставить данные для действия `<form>`. Серверная функция будет вызвана с данными скрытого поля формы в виде экземпляра [`FormData`](https://developer.mozilla.org/ru/docs/Web/API/FormData).
 
 ```jsx
 import { updateCart } from './lib.js';
@@ -98,7 +98,7 @@ function AddToCart({productId}) {
 }
 ```
 
-In lieu of using hidden form fields to provide data to the `<form>`'s action, you can call the <CodeStep step={1}>`bind`</CodeStep> method to supply it with extra arguments. This will bind a new argument (<CodeStep step={2}>`productId`</CodeStep>) to the function in addition to the <CodeStep step={3}>`formData`</CodeStep> that is passed as an argument to the function.
+Вместо использования скрытых полей формы для предоставления данных для действия `<form>`, вы можете вызвать метод <CodeStep step={1}>`bind`</CodeStep>, чтобы предоставить ему дополнительные аргументы. Это привяжет новый аргумент (<CodeStep step={2}>`productId`</CodeStep>) к функции в дополнение к <CodeStep step={3}>`formData`</CodeStep>, который передаётся в качестве аргумента функции.
 
 ```jsx [[1, 8, "bind"], [2,8, "productId"], [2,4, "productId"], [3,4, "formData"]]
 import { updateCart } from './lib.js';
@@ -117,12 +117,13 @@ function AddToCart({productId}) {
 }
 ```
 
-When `<form>` is rendered by a [Server Component](/reference/rsc/use-client), and a [Server Function](/reference/rsc/server-functions) is passed to the `<form>`'s `action` prop, the form is [progressively enhanced](https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement).
+Когда `<form>` отрендерен [серверным компонентом](/reference/rsc/use-client), а [серверная функция](/reference/rsc/server-functions) передаётся в проп `action` `<form>`, форма [постепенно улучшается](https://developer.mozilla.org/ru/docs/Glossary/Progressive_Enhancement).
 
-### Display a pending state during form submission {/*display-a-pending-state-during-form-submission*/}
-To display a pending state when a form is being submitted, you can call the `useFormStatus` Hook in a component rendered in a `<form>` and read the `pending` property returned.
+### Отображение состояния ожидания во время отправки формы {/*display-a-pending-state-during-form-submission*/}
 
-Here, we use the `pending` property to indicate the form is submitting.
+Чтобы отобразить состояние ожидания при отправке формы, вы можете вызвать хук `useFormStatus` в компоненте, отрендеренном в `<form>`, и прочитать возвращённое свойство `pending`.
+
+Здесь мы используем свойство `pending`, чтобы указать, что форма отправляется.
 
 <Sandpack>
 
@@ -134,7 +135,7 @@ function Submit() {
   const { pending } = useFormStatus();
   return (
     <button type="submit" disabled={pending}>
-      {pending ? "Submitting..." : "Submit"}
+      {pending ? "Отправка..." : "Отправить"}
     </button>
   );
 }
@@ -160,12 +161,13 @@ export async function submitForm(query) {
 
 </Sandpack>
 
-To learn more about the `useFormStatus` Hook see the [reference documentation](/reference/react-dom/hooks/useFormStatus).
+Чтобы узнать больше о хуке `useFormStatus`, см. [справочную документацию](/reference/react-dom/hooks/useFormStatus).
 
-### Optimistically updating form data {/*optimistically-updating-form-data*/}
-The `useOptimistic` Hook provides a way to optimistically update the user interface before a background operation, like a network request, completes. In the context of forms, this technique helps to make apps feel more responsive. When a user submits a form, instead of waiting for the server's response to reflect the changes, the interface is immediately updated with the expected outcome.
+### Оптимистичное обновление данных формы {/*optimistically-updating-form-data*/}
 
-For example, when a user types a message into the form and hits the "Send" button, the `useOptimistic` Hook allows the message to immediately appear in the list with a "Sending..." label, even before the message is actually sent to a server. This "optimistic" approach gives the impression of speed and responsiveness. The form then attempts to truly send the message in the background. Once the server confirms the message has been received, the "Sending..." label is removed.
+Хук `useOptimistic` предоставляет способ оптимистичного обновления пользовательского интерфейса до завершения фоновой операции, такой как сетевой запрос. В контексте форм эта техника помогает сделать приложения более отзывчивыми. Когда пользователь отправляет форму, вместо ожидания ответа сервера для отражения изменений, интерфейс немедленно обновляется с ожидаемым результатом.
+
+Например, когда пользователь вводит сообщение в форму и нажимает кнопку «Отправить», хук `useOptimistic` позволяет сообщению сразу появиться в списке с меткой «Отправка...», даже до того, как сообщение будет отправлено на сервер. Этот «оптимистичный» подход создаёт впечатление скорости и отзывчивости. Затем форма пытается по-настоящему отправить сообщение в фоновом режиме. Как только сервер подтвердит, что сообщение получено, метка «Отправка...» удаляется.
 
 <Sandpack>
 
@@ -197,12 +199,12 @@ function Thread({ messages, sendMessage }) {
       {optimisticMessages.map((message, index) => (
         <div key={index}>
           {message.text}
-          {!!message.sending && <small> (Sending...)</small>}
+          {!!message.sending && <small> (Отправка...)</small>}
         </div>
       ))}
       <form action={formAction} ref={formRef}>
-        <input type="text" name="message" placeholder="Hello!" />
-        <button type="submit">Send</button>
+        <input type="text" name="message" placeholder="Привет!" />
+        <button type="submit">Отправить</button>
       </form>
     </>
   );
@@ -210,7 +212,7 @@ function Thread({ messages, sendMessage }) {
 
 export default function App() {
   const [messages, setMessages] = useState([
-    { text: "Hello there!", sending: false, key: 1 }
+    { text: "Привет!", sending: false, key: 1 }
   ]);
   async function sendMessage(formData) {
     const sentMessage = await deliverMessage(formData.get("message"));
@@ -232,9 +234,9 @@ export async function deliverMessage(message) {
 [//]: # 'Uncomment the next line, and delete this line after the `useOptimistic` reference documentatino page is published'
 [//]: # 'To learn more about the `useOptimistic` Hook see the [reference documentation](/reference/react/hooks/useOptimistic).'
 
-### Handling form submission errors {/*handling-form-submission-errors*/}
+### Обработка ошибок отправки формы {/*handling-form-submission-errors*/}
 
-In some cases the function called by a `<form>`'s `action` prop throws an error. You can handle these errors by wrapping `<form>` in an Error Boundary. If the function called by a `<form>`'s `action` prop throws an error, the fallback for the error boundary will be displayed.
+В некоторых случаях функция, вызываемая пропом `action` `<form>`, выдаёт ошибку. Вы можете обработать эти ошибки, обернув `<form>` в Error Boundary. Если функция, вызываемая пропом `action` `<form>`, выдаёт ошибку, будет отображена резервная копия для предохранителя.
 
 <Sandpack>
 
@@ -243,15 +245,15 @@ import { ErrorBoundary } from "react-error-boundary";
 
 export default function Search() {
   function search() {
-    throw new Error("search error");
+    throw new Error("ошибка поиска");
   }
   return (
     <ErrorBoundary
-      fallback={<p>There was an error while submitting the form</p>}
+      fallback={<p>Произошла ошибка при отправке формы</p>}
     >
       <form action={search}>
         <input name="query" />
-        <button type="submit">Search</button>
+        <button type="submit">Поиск</button>
       </form>
     </ErrorBoundary>
   );
@@ -274,15 +276,15 @@ export default function Search() {
 
 </Sandpack>
 
-### Display a form submission error without JavaScript {/*display-a-form-submission-error-without-javascript*/}
+### Отображение сообщения об ошибке отправки формы без JavaScript {/*display-a-form-submission-error-without-javascript*/}
 
-Displaying a form submission error message before the JavaScript bundle loads for progressive enhancement requires that:
+Отображение сообщения об ошибке отправки формы до загрузки пакета JavaScript для прогрессивного улучшения требует, чтобы:
 
-1. `<form>` be rendered by a [Server Component](/reference/rsc/use-client)
-1. the function passed to the `<form>`'s `action` prop be a [Server Function](/reference/rsc/server-functions)
-1. the `useActionState` Hook be used to display the error message
+1. `<form>` был отрендерен [серверным компонентом](/reference/rsc/use-client)
+1. функция, переданная в проп `action` `<form>`, была [серверной функцией](/reference/rsc/server-functions)
+1. хук `useActionState` использовался для отображения сообщения об ошибке
 
-`useActionState` takes two parameters: a [Server Function](/reference/rsc/server-functions) and an initial state. `useActionState` returns two values, a state variable and an action. The action returned by `useActionState` should be passed to the `action` prop of the form. The state variable returned by `useActionState` can be used to display an error message. The value returned by the Server Function passed to `useActionState` will be used to update the state variable.
+`useActionState` принимает два параметра: [серверную функцию](/reference/rsc/server-functions) и начальное состояние. `useActionState` возвращает два значения: переменную состояния и действие. Действие, возвращаемое `useActionState`, должно быть передано в проп `action` формы. Переменная состояния, возвращаемая `useActionState`, может использоваться для отображения сообщения об ошибке. Значение, возвращаемое серверной функцией, переданной в `useActionState`, будет использоваться для обновления переменной состояния.
 
 <Sandpack>
 
@@ -296,7 +298,7 @@ export default function Page() {
     const email = formData.get("email");
     try {
       await signUpNewUser(email);
-      alert(`Added "${email}"`);
+      alert(`Добавлено "${email}"`);
     } catch (err) {
       return err.toString();
     }
@@ -304,12 +306,12 @@ export default function Page() {
   const [message, signupAction] = useActionState(signup, null);
   return (
     <>
-      <h1>Signup for my newsletter</h1>
-      <p>Signup with the same email twice to see an error</p>
+      <h1>Зарегистрируйтесь для получения моей рассылки</h1>
+      <p>Зарегистрируйтесь с одним и тем же адресом электронной почты дважды, чтобы увидеть ошибку</p>
       <form action={signupAction} id="signup-form">
-        <label htmlFor="email">Email: </label>
+        <label htmlFor="email">Электронная почта: </label>
         <input name="email" id="email" placeholder="react@example.com" />
-        <button>Sign up</button>
+        <button>Зарегистрироваться</button>
         {!!message && <p>{message}</p>}
       </form>
     </>
@@ -322,7 +324,7 @@ let emails = [];
 
 export async function signUpNewUser(newEmail) {
   if (emails.includes(newEmail)) {
-    throw new Error("This email address has already been added");
+    throw new Error("Этот адрес электронной почты уже добавлен");
   }
   emails.push(newEmail);
 }
@@ -330,13 +332,13 @@ export async function signUpNewUser(newEmail) {
 
 </Sandpack>
 
-Learn more about updating state from a form action with the [`useActionState`](/reference/react/useActionState) docs
+Узнайте больше об обновлении состояния из действия формы с помощью документации [`useActionState`](/reference/react/useActionState)
 
-### Handling multiple submission types {/*handling-multiple-submission-types*/}
+### Обработка нескольких типов отправки {/*handling-multiple-submission-types*/}
 
-Forms can be designed to handle multiple submission actions based on the button pressed by the user. Each button inside a form can be associated with a distinct action or behavior by setting the `formAction` prop.
+Формы могут быть разработаны для обработки нескольких действий отправки в зависимости от кнопки, нажатой пользователем. Каждая кнопка внутри формы может быть связана с отдельным действием или поведением, установив проп `formAction`.
 
-When a user taps a specific button, the form is submitted, and a corresponding action, defined by that button's attributes and action, is executed. For instance, a form might submit an article for review by default but have a separate button with `formAction` set to save the article as a draft.
+Когда пользователь нажимает определенную кнопку, форма отправляется, и выполняется соответствующее действие, определенное атрибутами и действием этой кнопки. Например, форма может по умолчанию отправлять статью на рассмотрение, но иметь отдельную кнопку с установленным `formAction` для сохранения статьи в качестве черновика.
 
 <Sandpack>
 
@@ -345,23 +347,24 @@ export default function Search() {
   function publish(formData) {
     const content = formData.get("content");
     const button = formData.get("button");
-    alert(`'${content}' was published with the '${button}' button`);
+    alert(`'${content}' был опубликован с помощью кнопки '${button}'`);
   }
 
   function save(formData) {
     const content = formData.get("content");
-    alert(`Your draft of '${content}' has been saved!`);
+    alert(`Ваш черновик '${content}' был сохранён!`);
   }
 
   return (
     <form action={publish}>
       <textarea name="content" rows={4} cols={40} />
       <br />
-      <button type="submit" name="button" value="submit">Publish</button>
-      <button formAction={save}>Save draft</button>
+      <button type="submit" name="button" value="submit">Опубликовать</button>
+      <button formAction={save}>Сохранить черновик</button>
     </form>
   );
 }
 ```
 
 </Sandpack>
+```
